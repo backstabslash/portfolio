@@ -2,8 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem 2.5rem;
 }
 
 .header__menu {

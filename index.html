@@ -15,7 +15,8 @@
       <nav>
         <ul class="header__menu">
           <li><a class="header__link" href="#about">About</a></li>
-          <li><a class="header__link" href="#featured">Work</a></li>
+          <li><a class="header__link" href="#featured">Featured</a></li>
+          <li><a class="header__link" href="#projects">Projects</a></li>
           <li><a class="header__link" href="#contact">Contact</a></li>
           <li class="header__line"></li>
           <li>
@@ -59,20 +60,25 @@
           specialized in building stunning pixel-perfect interactive
           websites/applications.
         </p>
-        <a class="hero__btn btn" href="#">Reach Out</a>
+        <div class="hero__links">
+          <a class="hero__btn1 btn" href="#contact">Contact</a>
+          <a class="hero__btn2 btn" href="">GitHub</a>
+        </div>
       </section>
-      <section class="about container section">
+      <section class="about container section" id="about">
         <div class="about__content">
-          <h2 class="about__title">About Me</h2>
+          <h2 class="about__title">About</h2>
           <p class="about__description">
-            As a passionate <strong>Frontend / Fullstack web developer</strong>,
-            I'm constantly building things that live on the web. I specialize in
-            using JavaScript and its associated libraries to create dynamic,
+            As a passionate
+            <span class="about__description-indigo"
+              >Frontend / Fullstack web developer</span
+            >, I'm constantly building things that live on the web. I specialize
+            in using JavaScript and its associated libraries to create dynamic,
             interactive, and user-friendly interfaces. Learning new technologies
             and development environments is my driving force.
           </p>
           <p class="about__description">
-            My expertise includes <a>HTML5</a>, <a>CSS3</a> / <a>SCSS</a>,
+            My expertise includes <a>HTML5</a>, <a>CSS3 / SASS</a>,
             <a>JavaScript</a>, <a>TypeScript</a>, <a>React.JS</a>, <a>Axios</a>,
             <a>Redux</a>, <a>Node.JS</a>, <a>Express.JS</a>, <a>JWT</a>,
             <a>REST APIs</a>, <a>SQL</a> and <a>noSQL databases</a>. I also have
@@ -110,11 +116,239 @@
           <img class="about__img" src="/about.jpg" alt="About Picture" />
         </div>
       </section>
-      <!-- <section></section> -->
-      <!-- <section></section> -->
-      <!-- <section></section> -->
+      <section class="featured container section" id="featured">
+        <div class="featured__wrapper">
+          <h3 class="featured__subtitle">Featured Project</h3>
+          <a
+            class="featured__subtitle-link"
+            href="https://github.com/backstabslash/react-node-postgre-parking"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="featured__wrapper">
+          <h2 class="featured__title">Super Parking</h2>
+          <a
+            class="featured__title-link"
+            href="https://parkingbackstabslash.vercel.app/"
+            target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+        <p class="featured__description">
+          Super Parking is a sleek and modern full-stack web application that
+          simplifies the process of renting parking slots. With its easy-to-use
+          interface, flexible options, and unbeatable prices, Super Parking
+          ensures a stress-free parking experience for customers.
+        </p>
+        <div class="featured__info-container">
+          <div>
+            <h3 class="featured__label">Tech Stack</h3>
+            <ul class="featured__tech-stack">
+              <li class="featured__info">HTML5 + SASS</li>
+              <li class="featured__info">React.JS</li>
+              <li class="featured__info">Redux Toolkit + TypeScript</li>
+              <li class="featured__info">Axios</li>
+              <li class="featured__info">Node.JS + Express.JS</li>
+              <li class="featured__info">PostgreSQL</li>
+              <li class="featured__info">JWT Auth</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="featured__label">Project Type</h3>
+            <p class="featured__info">Fullstack</p>
+            <h3 class="featured__label featured__info-margin">Timeline</h3>
+            <p class="featured__info">April 2023 — Present</p>
+          </div>
+        </div>
+        <div class="featured__img-container">
+          <div class="featured__img-wrapper">
+            <img src="/home.png" alt="Super Parking home" />
+          </div>
+          <div class="featured__img-wrapper">
+            <img src="/about.png" alt="Super Parking about" />
+          </div>
+          <div class="featured__img-wrapper">
+            <img src="/reviews.png" alt="Super Parking reviews" />
+          </div>
+          <div class="featured__img-wrapper">
+            <img src="/team.png" alt="Super Parking team" />
+          </div>
+          <div class="featured__img-wrapper">
+            <img src="/contact.png" alt="Super Parking contact" />
+          </div>
+          <div class="featured__img-wrapper">
+            <img src="/signup.png  " alt="Super Parking signup" />
+          </div>
+        </div>
+      </section>
+      <section class="projects container section" id="projects">
+        <h2 class="projects__title">Projects</h2>
+        <p class="projects__description">
+          Mollit pariatur tempor nisi dolor non consequat magna cupidatat
+          reprehenderit. Aliquip excepteur ullamco aliquip magna est et commodo
+          deserunt ipsum.
+        </p>
+        <div class="projects__container">
+          <!-- Project 1 -->
+          <h3 class="projects__project-title">Super Parking</h3>
+          <div class="projects__img-wrapper projects__image1">
+            <img src="/parking.png" alt="Super Parking demo" />
+          </div>
+          <div class="projects__project projects__content1">
+            <h3 class="projects__project-subtitle">Super Parking</h3>
+            <p class="projects__project-description1">
+              Labore magna ut non labore Lorem nisi culpa sint et quis sint.
+              Enim pariatur deserunt do ad exercitation.
+            </p>
+            <p class="projects__project-description2">
+              Ea ut non cupidatat consequat sint elit ipsum culpa dolor cillum
+              commodo. Do esse excepteur cillum deserunt duis incididunt. Eu
+              tempor ullamco aliqua consectetur incididunt anim dolor sunt
+              laboris adipisicing cupidatat sint.
+            </p>
+            <div class="projects__links">
+              <a
+                class="projects__project-btn1 btn"
+                href="https://parkingbackstabslash.vercel.app/"
+                target="_blank"
+                >Website</a
+              >
+              <a
+                class="projects__project-btn2 btn"
+                href="https://github.com/backstabslash/react-node-postgre-parking"
+                target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <h3 class="projects__project-title">Eldrow</h3>
+          <div class="projects__img-wrapper projects__image2">
+            <img src="/eldrow.png" alt="Eldrow demo" />
+          </div>
+          <div class="projects__project projects__content2">
+            <h3 class="projects__project-subtitle">Eldrow</h3>
+            <p class="projects__project-description1">
+              Labore magna ut non labore Lorem nisi culpa sint et quis sint.
+              Enim pariatur deserunt do ad exercitation.
+            </p>
+            <p class="projects__project-description2">
+              Ea ut non cupidatat consequat sint elit ipsum culpa dolor cillum
+              commodo. Do esse excepteur cillum deserunt duis incididunt. Eu
+              tempor ullamco aliqua consectetur incididunt anim dolor sunt
+              laboris adipisicing cupidatat sint.
+            </p>
+            <div class="projects__links">
+              <a
+                class="projects__project-btn1 btn"
+                href="https://eldrowbackstabslash.netlify.app/"
+                target="_blank"
+                >Website</a
+              >
+              <a class="projects__project-btn2 btn" href="#">GitHub</a>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <h3 class="projects__project-title">Computing Machine Emulator</h3>
+          <div class="projects__img-wrapper projects__image3">
+            <img src="/cme.png" alt="Computing Machine Emulator demo" />
+          </div>
+          <div class="projects__project projects__content3">
+            <h3 class="projects__project-subtitle">
+              Computing Machine Emulator
+            </h3>
+            <p class="projects__project-description1">
+              Labore magna ut non labore Lorem nisi culpa sint et quis sint.
+              Enim pariatur deserunt do ad exercitation.
+            </p>
+            <p class="projects__project-description2">
+              Ea ut non cupidatat consequat sint elit ipsum culpa dolor cillum
+              commodo. Do esse excepteur cillum deserunt duis incididunt. Eu
+              tempor ullamco aliqua consectetur incididunt anim dolor sunt
+              laboris adipisicing cupidatat sint.
+            </p>
+            <a
+              class="projects__project-btn2 btn"
+              href="https://github.com/backstabslash/csharp-computing-machine-emulator"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+          <!-- Project 4 -->
+          <h3 class="projects__project-title">CPU Scheduling Simulation</h3>
+          <div class="projects__img-wrapper projects__image4">
+            <img src="/cpuscheduler.png" alt="CPU Scheduling Simulation demo" />
+          </div>
+          <div class="projects__project projects__content4">
+            <h3 class="projects__project-subtitle">
+              CPU Scheduling Simulation
+            </h3>
+            <p class="projects__project-description1">
+              Labore magna ut non labore Lorem nisi culpa sint et quis sint.
+              Enim pariatur deserunt do ad exercitation.
+            </p>
+            <p class="projects__project-description2">
+              Ea ut non cupidatat consequat sint elit ipsum culpa dolor cillum
+              commodo. Do esse excepteur cillum deserunt duis incididunt. Eu
+              tempor ullamco aliqua consectetur incididunt anim dolor sunt
+              laboris adipisicing cupidatat sint.
+            </p>
+            <a
+              class="projects__project-btn2 btn"
+              href="https://github.com/backstabslash/csharp-cpu-scheduling-simulation"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="contact container section" id="contact">
+        <h2 class="contact__title">Get In Contact</h2>
+        <p class="contact__description">
+          Whether you are starting a project, have business inquiries or just
+          want to say hi, my inbox is always open so feel free to reach out and
+          I will get back to you as soon as possible.
+        </p>
+        <div class="contact__contacts">
+          <a
+            class="contact__btn1 btn"
+            href="mailto:tymofii.striukov@gmail.com"
+            target="_blank"
+            >React Out</a
+          >
+          <a
+            class="contact__btn2 btn"
+            href="https://www.linkedin.com/in/backstabslash/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+      </section>
     </main>
-    <!-- <footer></footer> -->
+    <footer class="footer container section">
+      <h3 class="footer__title">Tymofii Striukov</h3>
+    </footer>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>

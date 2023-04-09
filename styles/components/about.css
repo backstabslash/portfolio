@@ -13,12 +13,18 @@
 .about__title {
   font-size: var(--size-2xl);
   color: var(--clr-light);
+  text-align: center;
 }
 
 .about__description {
   max-width: 60ch;
   font-size: var(--size-s);
   color: var(--clr-slate600);
+  text-align: justify;
+}
+
+.about__description-indigo {
+  color: var(--clr-indigo);
 }
 
 .about__hr {
@@ -28,10 +34,12 @@
 .about__subtitle {
   font-size: var(--size-s);
   color: var(--clr-slate400);
+  text-align: center;
 }
 
 .about__ul-container {
   display: flex;
+  /* justify-content: space-evenly; */
 }
 
 .about__ul {
@@ -39,7 +47,6 @@
   flex-direction: column;
   gap: 1em;
   list-style-type: "\1F44D";
-  padding-left: 1em;
   flex: 1;
 }
 
@@ -124,7 +131,7 @@
 
   .about__list {
     font-size: var(--size-l);
-    width: 15ch;
+    width: 12ch;
   }
 
   .about__ul {

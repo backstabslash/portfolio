@@ -1,0 +1,119 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.contact__title {
+  font-size: var(--size-2xl);
+  color: var(--clr-light);
+  text-transform: capitalize;
+}
+
+.contact__description {
+  font-size: var(--size-s);
+  color: var(--clr-slate600);
+  max-width: 60ch;
+}
+
+.contact__btn1 {
+  font-size: var(--size-s);
+}
+
+.contact__btn2 {
+  font-size: var(--size-s);
+  background-color: var(--clr-indigo) !important;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3),
+    0 6px 6px rgba(79, 70, 229, 0.3), 0 0 100px -10px var(--clr-indigo) !important;
+}
+
+.contact__btn2:hover {
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.25),
+    0 10px 10px rgba(79, 70, 229, 0.25), 0 0 120px -10px var(--clr-indigo) !important;
+}
+
+.contact__contacts {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* xs */
+@media (min-width: 475px) {
+  .contact {
+    gap: 1.5rem;
+  }
+
+  .contact__title {
+    font-size: var(--size-3xl);
+  }
+
+  .contact__description {
+    font-size: var(--size-base);
+  }
+
+  .contact__btn1 {
+    font-size: var(--size-base);
+  }
+
+  .contact__btn2 {
+    font-size: var(--size-base);
+  }
+}
+
+/* s */
+/* @media (min-width: 640px) {
+} */
+
+/* m */
+/* @media (min-width: 768px) {
+} */
+
+/* l */
+@media (min-width: 1024px) {
+  .contact__title {
+    font-size: var(--size-4xl);
+  }
+
+  .contact__description {
+    font-size: var(--size-l);
+  }
+
+  .contact__btn1 {
+    font-size: var(--size-l);
+  }
+
+  .contact__btn2 {
+    font-size: var(--size-l);
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .contact {
+    gap: 2rem;
+  }
+
+  .contact__title {
+    font-size: var(--size-5xl);
+  }
+
+  .contact__description {
+    font-size: var(--size-xl);
+  }
+
+  .contact__btn1 {
+    font-size: var(--size-xl);
+  }
+
+  .contact__btn2 {
+    font-size: var(--size-xl);
+  }
+}
+
+/* 2xl */
+/* @media (min-width: 1536px) {
+} */

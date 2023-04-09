@@ -80,10 +80,12 @@
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .section {
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
 }
 
