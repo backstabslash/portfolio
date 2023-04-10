@@ -59,6 +59,35 @@
   gap: 1.5rem;
 }
 
+.hero__scroll-up {
+  position: fixed;
+  background-color: var(--clr-slate800);
+  border-radius: 4px;
+  width: 1rem;
+  height: 1rem;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.hero__scroll-up:hover {
+  background-color: var(--clr-slate600);
+}
+
+.hero__scroll-up-chevron {
+  color: #f1f5f9;
+  display: block;
+  position: absolute;
+  width: var(--size-l);
+  height: var(--size-l);
+}
+
 /* xs */
 @media (min-width: 475px) {
   .hero {
@@ -88,6 +117,19 @@
 
   .hero__btn2 {
     font-size: var(--size-base);
+  }
+
+  .hero__scroll-up {
+    width: 1rem;
+    height: 1rem;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 1.5rem;
+  }
+
+  .hero__scroll-up-chevron {
+    width: var(--size-2xl);
+    height: var(--size-2xl);
   }
 }
 

@@ -99,8 +99,11 @@
 }
 
 /* m */
-/* @media (min-width: 768px) {
-} */
+@media (min-width: 768px) {
+  .about__description {
+    max-width: 80ch;
+  }
+}
 
 /* l */
 @media (min-width: 1024px) {

@@ -12,6 +12,10 @@ import "../styles/utils.css";
 
 import mobileNav from "./utils/mobile-nav";
 import themeToggle from "./utils/themeToggle";
+import lazyLoading from "./utils/lazyLoading";
+import scrollUp from "./utils/scrollUp";
 
 mobileNav();
 themeToggle();
+lazyLoading();
+scrollUp();
