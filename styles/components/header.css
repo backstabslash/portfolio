@@ -2,7 +2,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 2rem 2.5rem;
+  padding: 2rem 2.5rem !important;
+  position: relative;
+  z-index: 9999;
 }
 
 .header__menu {
