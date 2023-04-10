@@ -60,6 +60,10 @@
   margin-left: 0.5em;
 }
 
+.about__img-wrapper {
+  display: none;
+}
+
 /* xs */
 @media (min-width: 475px) {
   .about {
@@ -88,15 +92,8 @@
 }
 
 /* s */
-@media (min-width: 640px) {
-  .about__img-wrapper {
-    margin: 0 auto;
-  }
-
-  .about__img {
-    width: 28.6875rem;
-  }
-}
+/* @media (min-width: 640px) {
+} */
 
 /* m */
 @media (min-width: 768px) {
@@ -139,6 +136,15 @@
 
   .about__ul {
     align-items: center;
+  }
+
+  .about__img-wrapper {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .about__img {
+    width: 28.6875rem;
   }
 }
 
