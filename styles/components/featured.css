@@ -82,7 +82,6 @@
 .featured__info {
   font-size: var(--size-sm);
   color: var(--clr-slate600);
-  text-transform: capitalize;
 }
 
 .featured__img-container {
