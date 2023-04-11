@@ -12,7 +12,7 @@
 }
 
 .header__bars {
-  color: var(--clr-light);
+  color: var(--clr-slate600);
   width: var(--size-2xl);
   height: var(--size-2xl);
   display: block;
