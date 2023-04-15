@@ -1,8 +1,7 @@
 const scrollUp = () => {
   const scrollUp = document.querySelector(".hero__scroll-up");
-  const scrollUpBtn = document.querySelector(".hero__scroll-up-chevron");
 
-  scrollUpBtn.addEventListener("click", () =>
+  scrollUp.addEventListener("click", () =>
     window.scrollTo({ top: (0, 0), behavior: "smooth" })
   );
 
