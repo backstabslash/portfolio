@@ -124,11 +124,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
+      "content0 image0"
       "image1 content1"
       "content2 image2"
       "image3 content3"
       "content4 image4";
     place-items: center;
+  }
+
+  .projects__image0 {
+    grid-area: image0;
   }
 
   .projects__image1 {
@@ -145,6 +150,10 @@
 
   .projects__image4 {
     grid-area: image4;
+  }
+
+  .projects__content0 {
+    grid-area: content0;
   }
 
   .projects__content1 {
