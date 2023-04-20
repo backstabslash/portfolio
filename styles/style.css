@@ -1,8 +1,8 @@
 :root {
   /* clrs */
-  --clr-dark: #070a13;
-  --clr-light: #f1f5f9;
-  --clr-slate400: #94a3b8;
+  --clr-dark: #f1f5f9;
+  --clr-light: #070a13;
+  --clr-slate400: #475569;
   --clr-slate600: #475569;
   --clr-slate800: #1e293b;
   --clr-rose: #e11d48;
@@ -29,10 +29,10 @@
   --size-10xl: 10rem;
 }
 
-.light-mode {
-  --clr-light: #070a13;
-  --clr-dark: #f1f5f9;
-  --clr-slate400: #475569;
+.dark-mode {
+  --clr-light: #f1f5f9;
+  --clr-dark: #070a13;
+  --clr-slate400: #94a3b8;
   --clr-slate600: #475569;
   --clr-slate800: #1e293b;
 }
