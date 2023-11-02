@@ -1,1 +1,1 @@
-![demopng](https://github.com/backstabslash/portfolio/blob/main/public/demo.png)
+![portfolio](https://github.com/backstabslash/portfolio/blob/main/public/readme.png)
