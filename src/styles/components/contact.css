@@ -16,7 +16,7 @@
 .contact__description {
   font-size: var(--size-s);
   color: var(--clr-slate600);
-  max-width: 65ch;
+  max-width: 50ch;
 }
 
 .contact__btn1 {
