@@ -10,8 +10,8 @@
 
 .hero__img {
   border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .hero__subtitle {
@@ -95,8 +95,8 @@
   }
 
   .hero__img {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 10rem;
+    height: 10rem;
   }
 
   .hero__subtitle {
@@ -144,8 +144,8 @@
 /* l */
 @media (min-width: 1024px) {
   .hero__img {
-    width: 8rem;
-    height: 8rem;
+    width: 12rem;
+    height: 12rem;
   }
 
   .hero__subtitle {
@@ -176,8 +176,8 @@
   }
 
   .hero__img {
-    width: 10rem;
-    height: 10rem;
+    width: 14rem;
+    height: 14rem;
   }
 
   .hero__subtitle {
