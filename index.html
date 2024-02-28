@@ -1,525 +1,553 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,400,700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Tymofii Striukov | Software Engineer</title>
-  </head>
-  <body>
-    <header class="header container">
-      <nav>
-        <ul class="header__menu">
-          <li><a class="header__link" href="#about">About</a></li>
-          <li><a class="header__link" href="#featured">Featured</a></li>
-          <li><a class="header__link" href="#projects">Projects</a></li>
-          <li><a class="header__link" href="#contact">Contact</a></li>
-          <li class="header__line"></li>
-          <li>
-            <button class="header__sun" id="theme-toggle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
-                />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <a
-              class="header__resume btn"
-              href="https://drive.google.com/file/d/1_wDlf9Yo_4GaqXeSnEH8hAoHuKq-XxCk/view?usp=sharing"
-              target="_blank"
-              >Resume</a
-            >
-          </li>
-        </ul>
-        <button class="header__bars">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- Mobile Nav -->
-    <div class="mobile-nav">
-      <nav>
-        <ul class="mobile-nav__menu">
-          <li>
-            <a href="#about" class="mobile-nav__link">About</a>
-          </li>
-          <li>
-            <a href="#featured" class="mobile-nav__link">Featured</a>
-          </li>
-          <li>
-            <a href="#projects" class="mobile-nav__link">Projects</a>
-          </li>
-          <li>
-            <a href="#contact" class="mobile-nav__link">Contact</a>
-          </li>
-          <li class="mobile-nav__link-line"></li>
-          <li>
-            <button class="mobile-nav__sun" id="theme-toggle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
-                />
-              </svg>
-            </button>
-          </li>
-          <li>
-            <a
-              class="mobile-nav__btn btn"
-              href="https://drive.google.com/file/d/1_wDlf9Yo_4GaqXeSnEH8hAoHuKq-XxCk/view?usp=sharing"
-              target="_blank"
-              >Resume</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <main>
-      <section class="hero container">
-        <img class="hero__img" src="/hero.jpg" alt="Profile Picture" />
-        <h2 class="hero__subtitle">Hi, I'm Tymofii 🌀</h2>
-        <h1 class="hero__title">Software Engineer</h1>
-        <p class="hero__description">
-          As an unwavering <strong>software engineer</strong>, with hands-on
-          experience in <br />
-          <strong>web development</strong> and <strong>DevOps</strong>, I'm
-          dedicated to improving my skills and bringing value to impactful
-          projects.
-        </p>
-        <div class="hero__links">
-          <a class="hero__btn1 btn" href="#contact">Contact</a>
-          <a
-            class="hero__btn2 btn"
-            href="https://github.com/backstabslash"
-            target="_blank"
-            >GitHub</a
-          >
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/icon.jpg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,400,700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Tymofii Striukov | Software Engineer</title>
+    </head>
+    <body>
+        <header class="header container">
+            <nav>
+                <ul class="header__menu">
+                    <li><a class="header__link" href="#about">About</a></li>
+                    <li>
+                        <a class="header__link" href="#featured">Featured</a>
+                    </li>
+                    <li>
+                        <a class="header__link" href="#projects">Projects</a>
+                    </li>
+                    <li><a class="header__link" href="#contact">Contact</a></li>
+                    <li class="header__line"></li>
+                    <li>
+                        <button class="header__sun" id="theme-toggle">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
+                                />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <a
+                            class="header__resume btn"
+                            href="https://drive.google.com/file/d/1_wDlf9Yo_4GaqXeSnEH8hAoHuKq-XxCk/view?usp=sharing"
+                            target="_blank"
+                            >Resume</a
+                        >
+                    </li>
+                </ul>
+                <button class="header__bars">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                </button>
+            </nav>
+        </header>
+        <!-- Mobile Nav -->
+        <div class="mobile-nav">
+            <nav>
+                <ul class="mobile-nav__menu">
+                    <li>
+                        <a href="#about" class="mobile-nav__link">About</a>
+                    </li>
+                    <li>
+                        <a href="#featured" class="mobile-nav__link"
+                            >Featured</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#projects" class="mobile-nav__link"
+                            >Projects</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#contact" class="mobile-nav__link">Contact</a>
+                    </li>
+                    <li class="mobile-nav__link-line"></li>
+                    <li>
+                        <button class="mobile-nav__sun" id="theme-toggle">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"
+                                />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <a
+                            class="mobile-nav__btn btn"
+                            href="https://drive.google.com/file/d/1_wDlf9Yo_4GaqXeSnEH8hAoHuKq-XxCk/view?usp=sharing"
+                            target="_blank"
+                            >Resume</a
+                        >
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="hero__scroll-up">
-          <button class="hero__scroll-up-chevron">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 15.75l7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </section>
-      <section class="about container section" id="about">
-        <div class="about__content">
-          <h2 class="about__title">About</h2>
-          <p class="about__description">
-            💻Software engineer with a passion for web development and DevOps,
-            fueled by a love for niche horror movies, indie rock music, and an
-            insatiable craving for coffee - the perfect trio to ignite
-            creativity and fuel problem-solving.
-            <br />
-            🚀DevOps enthusiast with hands-on experience in Docker, Kubernetes,
-            GitHub Actions, and Jenkins. Contributed to CI/CD initiatives at
-            Pipedrive, optimizing infrastructure and ensuring code integrity
-            through unit testing. Played an integral role in optimizing
-            Devboxes, the extensive internal developer productivity tool,
-            focusing on debugging, bug fixing, and aiding in the migration from
-            Docker to Harbor using Go language. Collaborated on Kubernetes
-            upgrades and Disaster Recovery Exercises, gaining valuable insights
-            into essential tooling. <br />
-            🛠️Previously a Frontend Developer Intern at Kuehne+Nagel, where I
-            developed products from scratch and implemented cutting-edge
-            features using React, TypeScript, and Redux. Proficient with
-            industry-standard tools like JIRA, Slack, and GitHub for efficient
-            project management and collaboration. <br />
-            🔍Currently seeking new opportunities to apply and expand my skills
-            in a professional environment. Eager to tackle new challenges and
-            contribute to innovative tech projects.
-          </p>
-        </div>
-        <div class="about__img">
-          <img
-            class="lazy loading"
-            src="https://via.placeholder.com/1923x2000"
-            data-src="/about.jpg"
-            alt="About Me"
-          />
-        </div>
-      </section>
-      <section class="featured container section" id="featured">
-        <div class="featured__wrapper">
-          <h3 class="featured__subtitle">Featured Project</h3>
-          <a
-            class="featured__subtitle-link"
-            href="https://github.com/backstabslash/react-node-postgre-parking"
-            target="_blank"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-        </div>
-        <div class="featured__wrapper">
-          <h2 class="featured__title">Super Parking</h2>
-          <a
-            class="featured__title-link"
-            href="https://parkingbackstabslash.vercel.app/"
-            target="_blank"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-        </div>
-        <p class="featured__description">
-          Super Parking is a sleek and modern fullstack web application that
-          simplifies the process of renting parking slots. With its easy-to-use
-          interface, flexible options, and unbeatable prices, Super Parking
-          ensures a stress-free parking experience for customers.
-        </p>
-        <div class="featured__info-container">
-          <div>
-            <h3 class="featured__label">Tech Stack</h3>
-            <ul class="featured__tech-stack">
-              <li class="featured__info">HTML5 + SASS</li>
-              <li class="featured__info">React.js</li>
-              <li class="featured__info">Redux Toolkit + TypeScript</li>
-              <li class="featured__info">Axios</li>
-              <li class="featured__info">Node.js + Express.js</li>
-              <li class="featured__info">PostgreSQL</li>
-              <li class="featured__info">JWT Auth</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="featured__label">Project Type</h3>
-            <p class="featured__info">Fullstack</p>
-            <h3 class="featured__label featured__info-margin">Timeline</h3>
-            <p class="featured__info">April 2023 — June 2023</p>
-          </div>
-        </div>
-        <div class="featured__img-container">
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x953"
-              data-src="/home.png"
-              alt="Super Parking home"
-            />
-          </div>
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x953"
-              data-src="/about.png"
-              alt="Super Parking about"
-            />
-          </div>
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x953"
-              data-src="/reviews.png"
-              alt="Super Parking reviews"
-            />
-          </div>
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x953"
-              data-src="/team.png"
-              alt="Super Parking team"
-            />
-          </div>
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x882"
-              data-src="/contact.png"
-              alt="Super Parking contact"
-            />
-          </div>
-          <div class="featured__img-wrapper">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1920x882"
-              data-src="/signup.png  "
-              alt="Super Parking signup"
-            />
-          </div>
-        </div>
-      </section>
-      <section class="projects container section" id="projects">
-        <h2 class="projects__title">Projects</h2>
-        <p class="projects__description">
-          As a versatile software engineer, my expertise spans web development,
-          DevOps, and C# programming. My portfolio includes projects that
-          showcase my skills in developing dynamic interfaces, creating
-          responsive web applications, designing and implementing efficient
-          database structures, and integrating with various APIs. My dedication
-          to web and DevOps drives me to continuously enhance my skills,
-          delivering innovative solutions to employers.
-        </p>
-        <div class="projects__container">
-          <!-- Project 0 -->
-          <h3 class="projects__project-title">Shoeshop</h3>
-          <div class="projects__image0">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1480x938"
-              data-src="/shoeshop.png"
-              alt="Shoeshop demo"
-            />
-          </div>
-          <div class="projects__project projects__content0">
-            <h3 class="projects__project-subtitle">Shoeshop</h3>
-            <p class="projects__project-description1">
-              <strong>Frontend:</strong> HTML5 + CSS3 Responsive, React.js,
-              Routing<br />
-              <strong>Backend:</strong> Not yet available<br />
-            </p>
-            <p class="projects__project-description2">
-              Shoeshop is a new e-commerce platform currently under development.
-              With its modern design and unbeatable selection of shoes, it
-              promises to be the go-to destination for shoe-lovers everywhere.
-              Stay tuned for updates as I work to bring you a stress-free
-              shoe-shopping experience!
-            </p>
-            <div class="projects__links">
-              <a
-                class="projects__project-btn1 btn"
-                href="https://shoeshopbackstabslash.vercel.app/"
-                target="_blank"
-                >Website</a
-              >
-              <a
-                class="projects__project-btn2 btn"
-                href="https://github.com/backstabslash/react-x-x-ecommerce"
-                target="_blank"
-                >GitHub</a
-              >
-            </div>
-          </div>
-          <!-- Project 1 -->
-          <h3 class="projects__project-title">Super Parking</h3>
-          <div class="projects__image1">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1480x940"
-              data-src="/parking.png"
-              alt="Super Parking demo"
-            />
-          </div>
-          <div class="projects__project projects__content1">
-            <h3 class="projects__project-subtitle">Super Parking</h3>
-            <p class="projects__project-description1">
-              <strong>Frontend:</strong> HTML5 + CSS3 / SASS Responsive,
-              React.js, Redux Toolkit (+ TypeScript), Axios, Routing, Custom
-              Hooks<br />
-              <strong>Backend:</strong> Node.js + Express.js, PostgreSQL (Roles,
-              Functions, Triggers, Views), RESTful API, JWT auth, HTTP-only
-              Cookies
-            </p>
-            <p class="projects__project-description2">
-              Super Parking is a sleek and modern fullstack web application that
-              simplifies the process of renting parking slots. With its
-              easy-to-use interface, flexible options, and unbeatable prices,
-              Super Parking ensures a stress-free parking experience for
-              customers.
-            </p>
-            <div class="projects__links">
-              <a
-                class="projects__project-btn1 btn"
-                href="https://parkingbackstabslash.vercel.app/"
-                target="_blank"
-                >Website</a
-              >
-              <a
-                class="projects__project-btn2 btn"
-                href="https://github.com/backstabslash/react-node-postgre-parking"
-                target="_blank"
-                >GitHub</a
-              >
-            </div>
-          </div>
-          <!-- Project 2 -->
-          <h3 class="projects__project-title">Eldrow</h3>
-          <div class="projects__image2">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1480x945"
-              data-src="/eldrow.png"
-              alt="Eldrow demo"
-            />
-          </div>
-          <div class="projects__project projects__content2">
-            <h3 class="projects__project-subtitle">Eldrow</h3>
-            <p class="projects__project-description1">
-              <strong>Frontend:</strong> HTML5 + CSS3 / SASS, React.js, Local
-              Storage
-            </p>
-            <p class="projects__project-description2">
-              Wordle is a web-based word game. Guess the Wordle in 6 tries. Each
-              guess must be a valid 5-letter word. The color of the tiles will
-              change to show how close your guess was to the word.
-            </p>
-            <div class="projects__links">
-              <a
-                class="projects__project-btn1 btn"
-                href="https://eldrowbackstabslash.netlify.app/"
-                target="_blank"
-                >Website</a
-              >
-              <a
-                class="projects__project-btn2 btn"
-                href="https://github.com/backstabslash/react-wordle"
-                target="_blank"
-                >GitHub</a
-              >
-            </div>
-          </div>
-          <!-- Project 3 -->
-          <h3 class="projects__project-title">Computing Machine Emulator</h3>
-          <div class="projects__image3">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1480x890"
-              data-src="/cme.png"
-              alt="Computing Machine Emulator demo"
-            />
-          </div>
-          <div class="projects__project projects__content3">
-            <h3 class="projects__project-subtitle">
-              Computing Machine Emulator
-            </h3>
-            <p class="projects__project-description1">
-              <strong>Stack:</strong> C# .NET, Windows Presentation Foundation
-              (WPF), XAML
-            </p>
-            <p class="projects__project-description2">
-              A custom educational computer was developed based on the von
-              Neumann architecture, with a set of instructions designed and
-              implemented to enable input and output of data, perform arithmetic
-              operations (addition, subtraction, multiplication, division, and
-              remainder calculation), as well as other commands to transfer data
-              between memory locations, among other functions. All instructions
-              execute sequentially, except for conditional and unconditional
-              branching instructions, which can modify the program flow.
-            </p>
-            <a
-              class="projects__project-btn2 btn"
-              href="https://github.com/backstabslash/csharp-computing-machine-emulator"
-              target="_blank"
-              >GitHub</a
-            >
-          </div>
-          <!-- Project 4 -->
-          <h3 class="projects__project-title">CPU Scheduling Simulation</h3>
-          <div class="projects__image4">
-            <img
-              class="lazy loading"
-              src="https://via.placeholder.com/1481x953"
-              data-src="/cpuscheduler.png"
-              alt="CPU Scheduling Simulation demo"
-            />
-          </div>
-          <div class="projects__project projects__content4">
-            <h3 class="projects__project-subtitle">
-              CPU Scheduling Simulation
-            </h3>
-            <p class="projects__project-description1">
-              <strong>Stack:</strong> C# .NET, Windows Forms
-            </p>
-            <p class="projects__project-description2">
-              Project aims to develop a comprehensive simulation model for an
-              operating system that uses simplified algorithms to manage tasks,
-              devices, and memory efficiently. The program will include an
-              intuitive graphical user interface that allows users to customize
-              system settings and track real-time statistics, improving the
-              overall user experience.
-            </p>
-            <a
-              class="projects__project-btn2 btn"
-              href="https://github.com/backstabslash/csharp-cpu-scheduling-simulation"
-              target="_blank"
-              >GitHub</a
-            >
-          </div>
-        </div>
-      </section>
-      <section class="contact container section" id="contact">
-        <h2 class="contact__title">Get In Contact</h2>
-        <p class="contact__description">
-          If you're seeking a software engineer with a passion for crafting
-          dynamic and efficient applications, feel free to reach out to me at
-          <a
-            href="mailto:tymofii.striukov@gmail.com"
-            target="_blank"
-            style="text-decoration: none"
-            >tymofii.striukov@gmail.com</a
-          >. <br />I'm actively seeking new opportunities and eager to join a
-          team that values innovation, creativity, and hard work. <br />I look
-          forward to hearing from you soon!
-        </p>
-        <div class="contact__contacts">
-          <a
-            class="contact__btn1 btn"
-            href="mailto:tymofii.striukov@gmail.com"
-            target="_blank"
-            >React Out</a
-          >
-          <a
-            class="contact__btn2 btn"
-            href="https://www.linkedin.com/in/tymofii-striukov/"
-            target="_blank"
-            >LinkedIn</a
-          >
-        </div>
-      </section>
-    </main>
-    <footer class="footer container">
-      <h3 class="footer__title">Tymofii Striukov</h3>
-    </footer>
-    <script type="module" src="./src/main.js"></script>
-  </body>
+        <main>
+            <section class="hero container">
+                <img class="hero__img" src="/hero.jpg" alt="Profile Picture" />
+                <h2 class="hero__subtitle">Hi, I'm Tymofii 🌀</h2>
+                <h1 class="hero__title">Software Engineer</h1>
+                <p class="hero__description">
+                    As an unwavering <strong>software engineer</strong>, with
+                    hands-on experience in <br />
+                    <strong>web development</strong> and
+                    <strong>DevOps</strong>, I'm dedicated to improving my
+                    skills and bringing value to impactful projects.
+                </p>
+                <div class="hero__links">
+                    <a class="hero__btn1 btn" href="#contact">Contact</a>
+                    <a
+                        class="hero__btn2 btn"
+                        href="https://github.com/backstabslash"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                </div>
+                <div class="hero__scroll-up">
+                    <button class="hero__scroll-up-chevron">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+            <section class="about section container" id="about">
+                <div class="about__content">
+                    <h2 class="about__title">About</h2>
+                    <p class="about__description">
+                        💻Software engineer with a passion for web development
+                        and DevOps, fueled by a love for niche horror movies,
+                        indie rock music, and an insatiable craving for coffee -
+                        the perfect trio to ignite creativity and fuel
+                        problem-solving.
+                        <br />
+                        🚀Junior DevOps Engineer at Pipedrive, with hands-on
+                        experience in Docker, Kubernetes, GitHub Actions, and
+                        Jenkins. Contributed to CI/CD initiatives, optimizing
+                        infrastructure and ensuring code integrity through unit
+                        testing. Played an integral role in optimizing Devboxes,
+                        focusing on debugging, bug fixing, and aiding in the
+                        migration from Docker to Harbor using Go language.
+                        Collaborated on Kubernetes upgrades and Disaster
+                        Recovery Exercises, gaining valuable insights into
+                        essential tooling. <br />
+                        🛠️Previously a Frontend Developer Intern at
+                        Kuehne+Nagel, where I developed products from scratch
+                        and implemented cutting-edge features using React,
+                        TypeScript, and Redux. Proficient with industry-standard
+                        tools like JIRA, Slack, and GitHub for efficient project
+                        management and collaboration.
+                    </p>
+                </div>
+                <div class="about__img">
+                    <img
+                        class="lazy loading"
+                        src="https://via.placeholder.com/1923x2000"
+                        data-src="/about.jpg"
+                        alt="About Me"
+                    />
+                </div>
+            </section>
+            <section class="featured section container" id="featured">
+                <div class="featured__wrapper">
+                    <h3 class="featured__subtitle">Featured Project</h3>
+                    <a
+                        class="featured__subtitle-link"
+                        href="https://github.com/backstabslash/react-node-postgre-parking"
+                        target="_blank"
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div class="featured__wrapper">
+                    <h2 class="featured__title">Super Parking</h2>
+                    <a
+                        class="featured__title-link"
+                        href="https://parkingbackstabslash.vercel.app/"
+                        target="_blank"
+                        ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M19.902 4.098a3.75 3.75 0 00-5.304 0l-4.5 4.5a3.75 3.75 0 001.035 6.037.75.75 0 01-.646 1.353 5.25 5.25 0 01-1.449-8.45l4.5-4.5a5.25 5.25 0 117.424 7.424l-1.757 1.757a.75.75 0 11-1.06-1.06l1.757-1.757a3.75 3.75 0 000-5.304zm-7.389 4.267a.75.75 0 011-.353 5.25 5.25 0 011.449 8.45l-4.5 4.5a5.25 5.25 0 11-7.424-7.424l1.757-1.757a.75.75 0 111.06 1.06l-1.757 1.757a3.75 3.75 0 105.304 5.304l4.5-4.5a3.75 3.75 0 00-1.035-6.037.75.75 0 01-.354-1z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <p class="featured__description">
+                    Super Parking is a sleek and modern fullstack web
+                    application that simplifies the process of renting parking
+                    slots. With its easy-to-use interface, flexible options, and
+                    unbeatable prices, Super Parking ensures a stress-free
+                    parking experience for customers.
+                </p>
+                <div class="featured__info-container">
+                    <div>
+                        <h3 class="featured__label">Tech Stack</h3>
+                        <ul class="featured__tech-stack">
+                            <li class="featured__info">HTML5 + SASS</li>
+                            <li class="featured__info">React.js</li>
+                            <li class="featured__info">
+                                Redux Toolkit + TypeScript
+                            </li>
+                            <li class="featured__info">Axios</li>
+                            <li class="featured__info">Node.js + Express.js</li>
+                            <li class="featured__info">PostgreSQL</li>
+                            <li class="featured__info">JWT Auth</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="featured__label">Project Type</h3>
+                        <p class="featured__info">Fullstack</p>
+                        <h3 class="featured__label featured__info-margin">
+                            Timeline
+                        </h3>
+                        <p class="featured__info">April 2023 — June 2023</p>
+                    </div>
+                </div>
+                <div class="featured__img-container">
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x953"
+                            data-src="/home.png"
+                            alt="Super Parking home"
+                        />
+                    </div>
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x953"
+                            data-src="/about.png"
+                            alt="Super Parking about"
+                        />
+                    </div>
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x953"
+                            data-src="/reviews.png"
+                            alt="Super Parking reviews"
+                        />
+                    </div>
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x953"
+                            data-src="/team.png"
+                            alt="Super Parking team"
+                        />
+                    </div>
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x882"
+                            data-src="/contact.png"
+                            alt="Super Parking contact"
+                        />
+                    </div>
+                    <div class="featured__img-wrapper">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1920x882"
+                            data-src="/signup.png  "
+                            alt="Super Parking signup"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section class="projects section container" id="projects">
+                <h2 class="projects__title">Projects</h2>
+                <p class="projects__description">
+                    As a versatile software engineer, my expertise spans web
+                    development, DevOps, and C# programming. My portfolio
+                    includes projects that showcase my skills in developing
+                    dynamic interfaces, creating responsive web applications,
+                    designing and implementing efficient database structures,
+                    and integrating with various APIs. My dedication to web and
+                    DevOps drives me to continuously enhance my skills,
+                    delivering innovative solutions to employers.
+                </p>
+                <div class="projects__container">
+                    <!-- Project 0 -->
+                    <h3 class="projects__project-title">Shoeshop</h3>
+                    <div class="projects__image0">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1480x938"
+                            data-src="/shoeshop.png"
+                            alt="Shoeshop demo"
+                        />
+                    </div>
+                    <div class="projects__project projects__content0">
+                        <h3 class="projects__project-subtitle">Shoeshop</h3>
+                        <p class="projects__project-description1">
+                            <strong>Frontend:</strong> HTML5 + CSS3 Responsive,
+                            React.js, Routing<br />
+                            <strong>Backend:</strong> Not yet available<br />
+                        </p>
+                        <p class="projects__project-description2">
+                            Shoeshop is a new e-commerce platform currently
+                            under development. With its modern design and
+                            unbeatable selection of shoes, it promises to be the
+                            go-to destination for shoe-lovers everywhere. Stay
+                            tuned for updates as I work to bring you a
+                            stress-free shoe-shopping experience!
+                        </p>
+                        <div class="projects__links">
+                            <a
+                                class="projects__project-btn1 btn"
+                                href="https://shoeshopbackstabslash.vercel.app/"
+                                target="_blank"
+                                >Website</a
+                            >
+                            <a
+                                class="projects__project-btn2 btn"
+                                href="https://github.com/backstabslash/react-x-x-ecommerce"
+                                target="_blank"
+                                >GitHub</a
+                            >
+                        </div>
+                    </div>
+                    <!-- Project 1 -->
+                    <h3 class="projects__project-title">Super Parking</h3>
+                    <div class="projects__image1">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1480x940"
+                            data-src="/parking.png"
+                            alt="Super Parking demo"
+                        />
+                    </div>
+                    <div class="projects__project projects__content1">
+                        <h3 class="projects__project-subtitle">
+                            Super Parking
+                        </h3>
+                        <p class="projects__project-description1">
+                            <strong>Frontend:</strong> HTML5 + CSS3 / SASS
+                            Responsive, React.js, Redux Toolkit (+ TypeScript),
+                            Axios, Routing, Custom Hooks<br />
+                            <strong>Backend:</strong> Node.js + Express.js,
+                            PostgreSQL (Roles, Functions, Triggers, Views),
+                            RESTful API, JWT auth, HTTP-only Cookies
+                        </p>
+                        <p class="projects__project-description2">
+                            Super Parking is a sleek and modern fullstack web
+                            application that simplifies the process of renting
+                            parking slots. With its easy-to-use interface,
+                            flexible options, and unbeatable prices, Super
+                            Parking ensures a stress-free parking experience for
+                            customers.
+                        </p>
+                        <div class="projects__links">
+                            <a
+                                class="projects__project-btn1 btn"
+                                href="https://parkingbackstabslash.vercel.app/"
+                                target="_blank"
+                                >Website</a
+                            >
+                            <a
+                                class="projects__project-btn2 btn"
+                                href="https://github.com/backstabslash/react-node-postgre-parking"
+                                target="_blank"
+                                >GitHub</a
+                            >
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <h3 class="projects__project-title">Eldrow</h3>
+                    <div class="projects__image2">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1480x945"
+                            data-src="/eldrow.png"
+                            alt="Eldrow demo"
+                        />
+                    </div>
+                    <div class="projects__project projects__content2">
+                        <h3 class="projects__project-subtitle">Eldrow</h3>
+                        <p class="projects__project-description1">
+                            <strong>Frontend:</strong> HTML5 + CSS3 / SASS,
+                            React.js, Local Storage
+                        </p>
+                        <p class="projects__project-description2">
+                            Wordle is a web-based word game. Guess the Wordle in
+                            6 tries. Each guess must be a valid 5-letter word.
+                            The color of the tiles will change to show how close
+                            your guess was to the word.
+                        </p>
+                        <div class="projects__links">
+                            <a
+                                class="projects__project-btn1 btn"
+                                href="https://eldrowbackstabslash.netlify.app/"
+                                target="_blank"
+                                >Website</a
+                            >
+                            <a
+                                class="projects__project-btn2 btn"
+                                href="https://github.com/backstabslash/react-wordle"
+                                target="_blank"
+                                >GitHub</a
+                            >
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <h3 class="projects__project-title">
+                        Computing Machine Emulator
+                    </h3>
+                    <div class="projects__image3">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1480x890"
+                            data-src="/cme.png"
+                            alt="Computing Machine Emulator demo"
+                        />
+                    </div>
+                    <div class="projects__project projects__content3">
+                        <h3 class="projects__project-subtitle">
+                            Computing Machine Emulator
+                        </h3>
+                        <p class="projects__project-description1">
+                            <strong>Stack:</strong> C# .NET, Windows
+                            Presentation Foundation (WPF), XAML
+                        </p>
+                        <p class="projects__project-description2">
+                            A custom educational computer was developed based on
+                            the von Neumann architecture, with a set of
+                            instructions designed and implemented to enable
+                            input and output of data, perform arithmetic
+                            operations (addition, subtraction, multiplication,
+                            division, and remainder calculation), as well as
+                            other commands to transfer data between memory
+                            locations, among other functions. All instructions
+                            execute sequentially, except for conditional and
+                            unconditional branching instructions, which can
+                            modify the program flow.
+                        </p>
+                        <a
+                            class="projects__project-btn2 btn"
+                            href="https://github.com/backstabslash/csharp-computing-machine-emulator"
+                            target="_blank"
+                            >GitHub</a
+                        >
+                    </div>
+                    <!-- Project 4 -->
+                    <h3 class="projects__project-title">
+                        CPU Scheduling Simulation
+                    </h3>
+                    <div class="projects__image4">
+                        <img
+                            class="lazy loading"
+                            src="https://via.placeholder.com/1481x953"
+                            data-src="/cpuscheduler.png"
+                            alt="CPU Scheduling Simulation demo"
+                        />
+                    </div>
+                    <div class="projects__project projects__content4">
+                        <h3 class="projects__project-subtitle">
+                            CPU Scheduling Simulation
+                        </h3>
+                        <p class="projects__project-description1">
+                            <strong>Stack:</strong> C# .NET, Windows Forms
+                        </p>
+                        <p class="projects__project-description2">
+                            Project aims to develop a comprehensive simulation
+                            model for an operating system that uses simplified
+                            algorithms to manage tasks, devices, and memory
+                            efficiently. The program will include an intuitive
+                            graphical user interface that allows users to
+                            customize system settings and track real-time
+                            statistics, improving the overall user experience.
+                        </p>
+                        <a
+                            class="projects__project-btn2 btn"
+                            href="https://github.com/backstabslash/csharp-cpu-scheduling-simulation"
+                            target="_blank"
+                            >GitHub</a
+                        >
+                    </div>
+                </div>
+            </section>
+            <section class="contact section container" id="contact">
+                <h2 class="contact__title">Get In Contact</h2>
+                <p class="contact__description">
+                    If you're seeking a software engineer with a passion for
+                    crafting dynamic and efficient applications, feel free to
+                    reach out to me at
+                    <a
+                        href="mailto:tymofii.striukov@gmail.com"
+                        target="_blank"
+                        style="text-decoration: none"
+                        >tymofii.striukov@gmail.com</a
+                    >. <br />I'm actively seeking new opportunities and eager to
+                    join a team that values innovation, creativity, and hard
+                    work. <br />I look forward to hearing from you soon!
+                </p>
+                <div class="contact__contacts">
+                    <a
+                        class="contact__btn1 btn"
+                        href="mailto:tymofii.striukov@gmail.com"
+                        target="_blank"
+                        >React Out</a
+                    >
+                    <a
+                        class="contact__btn2 btn"
+                        href="https://www.linkedin.com/in/tymofii-striukov/"
+                        target="_blank"
+                        >LinkedIn</a
+                    >
+                </div>
+            </section>
+        </main>
+        <footer class="footer container">
+            <h3 class="footer__title">Tymofii Striukov</h3>
+        </footer>
+        <script type="module" src="./src/main.js"></script>
+    </body>
 </html>
