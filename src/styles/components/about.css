@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  list-style-type: "\1F44D";
+  list-style-type: '\1F44D';
   flex: 1;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .about__list::before {
-  content: "";
+  content: '';
   margin-left: 0.5em;
 }
 
