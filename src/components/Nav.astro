@@ -1,0 +1,191 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import config from '../../site.config';
+---
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    {config.name.split(' ')[0].toLowerCase()}<span>.</span>{
+      config.name.split(' ')[1]?.toLowerCase()
+    }
+  </a>
+
+  <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+    <ThemeToggle />
+    {
+      config.links.resume && (
+        <a href={config.links.resume} target="_blank" rel="noopener noreferrer" class="nav-cta">
+          Resume
+        </a>
+      )
+    }
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-cta {
+    padding: 8px 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  .nav-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      padding: 16px 24px;
+    }
+
+    .nav-logo {
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-mobile-toggle {
+      display: flex;
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background: var(--bg);
+    }
+
+    .nav-links a {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<style is:global>
+  .nav.menu-open {
+    bottom: 0;
+    background: var(--bg);
+    border-bottom: none;
+    align-items: flex-start;
+  }
+
+  .nav.menu-open .nav-links {
+    display: flex;
+  }
+
+  .nav-mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    if (!nav || !toggle || !links) return;
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('menu-open');
+      toggle.classList.toggle('active');
+      document.body.style.overflow = nav.classList.contains('menu-open') ? 'hidden' : '';
+    });
+
+    links.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        toggle.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+</script>

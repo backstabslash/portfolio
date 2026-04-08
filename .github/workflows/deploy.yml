@@ -1,0 +1,57 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-deploy:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Configure kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > $HOME/.kube/config
+
+      - name: Create namespace if needed
+        run: kubectl create namespace portfolio --dry-run=client -o yaml | kubectl apply -f -
+
+      - name: Apply manifests
+        run: kubectl apply -f k8s/
+
+      - name: Deploy new image
+        run: |
+          kubectl set image deployment/portfolio \
+            portfolio=ghcr.io/${{ github.repository }}:${{ github.sha }} \
+            -n portfolio
+
+      - name: Wait for rollout
+        run: kubectl rollout status deployment/portfolio -n portfolio --timeout=120s

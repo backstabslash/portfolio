@@ -1,0 +1,42 @@
+# This uses Traefik IngressRoute (k3s default).
+# For standard Kubernetes Ingress, replace with:
+#
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: portfolio-ingress
+#   namespace: portfolio
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt
+# spec:
+#   tls:
+#     - hosts: [your-domain.com]
+#       secretName: portfolio-tls
+#   rules:
+#     - host: your-domain.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: portfolio
+#                 port:
+#                   number: 80
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: portfolio-ingress
+  namespace: portfolio
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`backstabslash.com`)
+      kind: Rule
+      services:
+        - name: portfolio
+          port: 80
+  tls:
+    certResolver: letsencrypt

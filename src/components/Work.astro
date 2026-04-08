@@ -1,0 +1,80 @@
+---
+import config from '../../site.config';
+---
+
+<section id="work">
+  <p class="section-label"><span>[</span> Professional Work <span>]</span></p>
+  <div class="work-grid">
+    {
+      config.work.map((item) => (
+        <div class="work-card">
+          <div class="work-info">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+          <div class="work-tag">{item.tag}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .work-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .work-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    transition: all 0.25s;
+  }
+
+  .work-card:hover {
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+  }
+
+  .work-info h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .work-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .work-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    min-width: 160px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .work-card {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+
+    .work-tag {
+      justify-self: start;
+    }
+  }
+</style>

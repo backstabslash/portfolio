@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.github
+.astro
+.superpowers
+docs
+tests
+*.md

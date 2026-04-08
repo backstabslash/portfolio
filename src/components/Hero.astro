@@ -1,0 +1,145 @@
+---
+import config from '../../site.config';
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-label">// {config.title}</p>
+      <h1 class="hero-headline">{config.headline}</h1>
+      <p class="hero-bio">{config.bio}</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Get in touch</a>
+        <a
+          href={config.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src={config.profileImage} alt={config.name} width="150" height="150" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .hero-headline {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  .hero-bio {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: justify;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    padding: 12px 28px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 14px;
+    transition: filter 0.2s;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.15);
+  }
+
+  .btn-secondary {
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    transition:
+      border-color 0.2s,
+      color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+  }
+
+  .hero-image img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-headline {
+      max-width: 100%;
+    }
+
+    .hero-bio {
+      max-width: 100%;
+      text-align: justify;
+    }
+
+    .hero-image img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import ParticleBackground from '../components/ParticleBackground.astro';
+import config from '../../site.config';
+
+const { theme } = config;
+
+const themeVars = {
+  light: Object.entries(theme.light)
+    .map(([key, val]) => {
+      const prop = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+      return `--${prop}: ${val};`;
+    })
+    .join('\n    '),
+  dark: Object.entries(theme.dark)
+    .map(([key, val]) => {
+      const prop = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+      return `--${prop}: ${val};`;
+    })
+    .join('\n    '),
+};
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = config.name, description = config.bio } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style
+      set:html={`
+      [data-theme='light'] {
+        ${themeVars.light}
+        --accent: ${theme.colors.accentLight};
+      }
+      [data-theme='dark'] {
+        ${themeVars.dark}
+        --accent: ${theme.colors.accentDark};
+      }
+    `}
+    ></style>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+        document.documentElement.setAttribute('data-theme', stored || preferred);
+
+        function faviconSvg(bg, accent, showCursor) {
+          var cursor = showCursor
+            ? '<rect x="16" y="20" width="10" height="2.5" rx="1.25" fill="' + accent + '"/>'
+            : '';
+          return (
+            'data:image/svg+xml,' +
+            encodeURIComponent(
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="' +
+                bg +
+                '"/><path d="M6 11L12 16L6 21" stroke="' +
+                accent +
+                '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+                cursor +
+                '</svg>',
+            )
+          );
+        }
+
+        var themes = {
+          dark: { bg: '#0a0a0f', accent: '#10b981' },
+          light: { bg: '#f5f5f0', accent: '#2563eb' },
+        };
+
+        var link = document.querySelector('link[rel="icon"]');
+        var visible = true;
+
+        window.__updateFavicon = function () {
+          var t = themes[document.documentElement.getAttribute('data-theme') || 'dark'];
+          link.href = faviconSvg(t.bg, t.accent, visible);
+        };
+
+        window.__updateFavicon();
+        setInterval(function () {
+          visible = !visible;
+          window.__updateFavicon();
+        }, 550);
+      })();
+    </script>
+  </head>
+  <body>
+    <ParticleBackground />
+    <div class="content" style="position:relative;z-index:1;">
+      <slot />
+    </div>
+  </body>
+</html>

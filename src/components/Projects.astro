@@ -1,0 +1,159 @@
+---
+import config from '../../site.config';
+---
+
+<section id="projects">
+  <p class="section-label"><span>[</span> Projects <span>]</span></p>
+  <div class="projects-grid">
+    {
+      config.projects.map((project) => (
+        <a
+          href={project.url ?? project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-card"
+        >
+          <div class="project-image">
+            <img src={project.image} alt={project.title} loading="lazy" />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span>Open Source</span>
+              {project.stars && <span>{project.stars}+ stars</span>}
+            </div>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <div class="project-tech">
+              {project.tech.map((t) => (
+                <span>{t}</span>
+              ))}
+            </div>
+            <div class="project-link">
+              <span>-&gt; {project.url ? 'Live' : 'GitHub'}</span>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+  }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .project-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .project-tech span {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 4px 10px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-tertiary);
+    transition: color 0.2s;
+    margin-top: auto;
+  }
+
+  .project-card:hover .project-link {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
