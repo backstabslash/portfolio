@@ -1,3 +1,7 @@
+[![CI](https://github.com/backstabslash/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/backstabslash/portfolio/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Built with Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01.svg?logo=astro)](https://astro.build)
+
 A config-driven developer portfolio built with Astro. Dark/light theme, interactive particle background, zero runtime JS (except particles). Deploy to Kubernetes or any static host.
 
 ## Quick start
@@ -27,8 +31,9 @@ All content lives in `site.config.ts`:
 | `links`        | object | `github`, `linkedin`, `resume` URLs                                 |
 | `about`        | object | `image` path and `text` (supports `\n\n` for paragraphs)            |
 | `skills`       | array  | `{ label, items }` skill groups                                     |
-| `projects`     | array  | `{ title, description, image, tech, github, url?, stars? }`         |
+| `projects`     | array  | `{ title, description, image, tech, github, url?, stars?, label? }` |
 | `work`         | array  | `{ title, description, tag }` professional work items               |
+| `contact`      | object | `heading` and `description` for the contact section                 |
 | `theme`        | object | `colors.accentDark/accentLight` + `dark` and `light` palettes (hex) |
 
 ## Images
@@ -37,7 +42,7 @@ Drop your images in `public/images/`:
 
 | Image               | Recommended size | Used in       |
 | ------------------- | ---------------- | ------------- |
-| `profile.jpg`       | 300x300px        | Hero section  |
+| `profile.jpg`       | 440x440px        | Hero section  |
 | `about.jpg`         | 800x1000px       | About section |
 | Project screenshots | 1200x750px       | Project cards |
 

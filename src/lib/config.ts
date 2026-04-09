@@ -22,6 +22,7 @@ const projectSchema = z.object({
   github: z.string().url(),
   url: z.string().url().optional(),
   stars: z.number().int().positive().optional(),
+  label: z.string().min(1).optional(),
 });
 
 const workSchema = z.object({
@@ -54,6 +55,10 @@ export const siteConfigSchema = z.object({
   skills: z.array(skillSchema).min(1),
   projects: z.array(projectSchema).min(1),
   work: z.array(workSchema).min(1),
+  contact: z.object({
+    heading: z.string().min(1),
+    description: z.string().min(1),
+  }),
   theme: z.object({
     colors: z.object({
       accentDark: hexColor,

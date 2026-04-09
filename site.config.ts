@@ -44,6 +44,7 @@ export default defineConfig({
       tech: ['Go', 'CLI', 'Zero deps', 'Homebrew'],
       github: 'https://github.com/backstabslash/goccc',
       stars: 16,
+      label: 'Open Source',
     },
     {
       title: 'eb-spending-tracker',
@@ -52,6 +53,7 @@ export default defineConfig({
       image: '/images/spending-tracker.png',
       tech: ['TypeScript', 'MongoDB', 'Grafana', 'k3s', 'Helm', 'GitHub Actions'],
       github: 'https://github.com/backstabslash/eb-spending-tracker',
+      label: 'Open Source',
     },
   ],
 
@@ -81,6 +83,11 @@ export default defineConfig({
       tag: 'Leadership',
     },
   ],
+
+  contact: {
+    heading: "Let's work together",
+    description: 'Open to DevOps, Developer Experience, and Software Engineering roles.',
+  },
 
   theme: {
     colors: {

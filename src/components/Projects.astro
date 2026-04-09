@@ -18,7 +18,7 @@ import config from '../../site.config';
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span>Open Source</span>
+              {project.label && <span>{project.label}</span>}
               {project.stars && <span>{project.stars}+ stars</span>}
             </div>
             <h3>{project.title}</h3>
@@ -48,7 +48,10 @@ import config from '../../site.config';
   .project-card {
     background: var(--card);
     border: 1px solid var(--border);
-    transition: all 0.25s;
+    transition:
+      background 0.25s,
+      border-color 0.25s,
+      transform 0.25s;
     position: relative;
     display: flex;
     flex-direction: column;

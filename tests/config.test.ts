@@ -34,6 +34,10 @@ const validConfig = {
       tag: 'Full-stack',
     },
   ],
+  contact: {
+    heading: 'Get in touch',
+    description: 'Open to new opportunities.',
+  },
   theme: {
     colors: { accentDark: '#10b981', accentLight: '#2563eb' },
     dark: {

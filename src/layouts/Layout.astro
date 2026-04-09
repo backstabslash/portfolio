@@ -33,7 +33,20 @@ const { title = config.name, description = config.bio } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/jetbrains-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.site?.toString() || ''} />
+    <meta name="twitter:card" content="summary" />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <style
@@ -48,7 +61,15 @@ const { title = config.name, description = config.bio } = Astro.props;
       }
     `}
     ></style>
-    <script is:inline>
+    <script
+      is:inline
+      define:vars={{
+        faviconThemes: {
+          dark: { bg: theme.dark.bg, accent: theme.colors.accentDark },
+          light: { bg: theme.light.bg, accent: theme.colors.accentLight },
+        },
+      }}
+    >
       (function () {
         const stored = localStorage.getItem('theme');
         const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -74,10 +95,7 @@ const { title = config.name, description = config.bio } = Astro.props;
           );
         }
 
-        var themes = {
-          dark: { bg: '#0a0a0f', accent: '#10b981' },
-          light: { bg: '#f5f5f0', accent: '#2563eb' },
-        };
+        var themes = faviconThemes;
 
         var link = document.querySelector('link[rel="icon"]');
         var visible = true;

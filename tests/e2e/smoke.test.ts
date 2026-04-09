@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import config from '../../site.config';
 
 test.describe('portfolio smoke tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -6,7 +7,7 @@ test.describe('portfolio smoke tests', () => {
   });
 
   test('page loads without errors', async ({ page }) => {
-    await expect(page).toHaveTitle(/Tymofii Striukov/);
+    await expect(page).toHaveTitle(new RegExp(config.name));
   });
 
   test('all sections render', async ({ page }) => {
