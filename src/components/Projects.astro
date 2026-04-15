@@ -1,12 +1,36 @@
 ---
 import config from '../../site.config';
+
+async function fetchStars(githubUrl: string): Promise<number | null> {
+  const match = githubUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+  if (!match) return null;
+  const [, owner, repo] = match;
+  try {
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo.replace(/\.git$/, '')}`, {
+      headers: { 'User-Agent': 'portfolio-build', Accept: 'application/vnd.github+json' },
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { stargazers_count?: number };
+    return typeof data.stargazers_count === 'number' ? data.stargazers_count : null;
+  } catch {
+    return null;
+  }
+}
+
+const projects = await Promise.all(
+  config.projects.map(async (project) => {
+    if (!project.liveStars) return project;
+    const live = await fetchStars(project.github);
+    return live !== null ? { ...project, stars: live } : project;
+  }),
+);
 ---
 
 <section id="projects">
   <p class="section-label"><span>[</span> Projects <span>]</span></p>
   <div class="projects-grid">
     {
-      config.projects.map((project) => (
+      projects.map((project) => (
         <a
           href={project.url ?? project.github}
           target="_blank"
@@ -19,7 +43,7 @@ import config from '../../site.config';
           <div class="project-body">
             <div class="project-meta">
               {project.label && <span>{project.label}</span>}
-              {project.stars && <span>{project.stars}+ stars</span>}
+              {project.stars && <span>{project.stars} stars</span>}
             </div>
             <h3>{project.title}</h3>
             <p>{project.description}</p>

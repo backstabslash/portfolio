@@ -21,7 +21,8 @@ const projectSchema = z.object({
   tech: z.array(z.string()).min(1),
   github: z.string().url(),
   url: z.string().url().optional(),
-  stars: z.number().int().positive().optional(),
+  stars: z.number().int().nonnegative().optional(),
+  liveStars: z.boolean().optional(),
   label: z.string().min(1).optional(),
 });
 

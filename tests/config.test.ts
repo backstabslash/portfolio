@@ -119,6 +119,33 @@ describe('siteConfigSchema', () => {
     }
   });
 
+  it('allows zero stars on projects', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      projects: [{ ...validConfig.projects[0], stars: 0 }],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects negative stars on projects', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      projects: [{ ...validConfig.projects[0], stars: -1 }],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('allows optional liveStars flag on projects', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      projects: [{ ...validConfig.projects[0], liveStars: true }],
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.projects[0].liveStars).toBe(true);
+    }
+  });
+
   it('rejects invalid hex color for accent', () => {
     const result = siteConfigSchema.safeParse({
       ...validConfig,
