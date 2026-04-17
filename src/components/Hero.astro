@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import config from '../../site.config';
+import { resolveImage } from '../lib/images';
 ---
 
 <section class="hero">
@@ -21,7 +23,15 @@ import config from '../../site.config';
       </div>
     </div>
     <div class="hero-image">
-      <img src={config.profileImage} alt={config.name} width="220" height="220" />
+      <Image
+        src={resolveImage(config.profileImage)}
+        alt={config.name}
+        width={220}
+        height={220}
+        widths={[220, 440]}
+        formats={['avif', 'webp']}
+        loading="eager"
+      />
     </div>
   </div>
 </section>

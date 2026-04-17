@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import config from '../../site.config';
+import { resolveImage } from '../lib/images';
 
 async function fetchStars(githubUrl: string): Promise<number | null> {
   const match = githubUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
@@ -27,7 +29,7 @@ const projects = await Promise.all(
 ---
 
 <section id="projects">
-  <p class="section-label"><span>[</span> Projects <span>]</span></p>
+  <h2 class="section-label"><span>[</span> Projects <span>]</span></h2>
   <div class="projects-grid">
     {
       projects.map((project) => (
@@ -38,7 +40,13 @@ const projects = await Promise.all(
           class="project-card"
         >
           <div class="project-image">
-            <img src={project.image} alt={project.title} loading="lazy" />
+            <Image
+              src={resolveImage(project.image)}
+              alt={project.title}
+              widths={[524, 1048]}
+              formats={['avif', 'webp']}
+              loading="lazy"
+            />
           </div>
           <div class="project-body">
             <div class="project-meta">

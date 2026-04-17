@@ -9,11 +9,14 @@ Astro 6, TypeScript, Zod, Vitest, Playwright, ESLint, Prettier, Docker (nginx), 
 ## Structure
 
 ```
-site.config.ts        # All personal content - the only file most changes touch
-src/lib/config.ts     # Zod schema validating site.config.ts
+site.config.ts         # All personal content - the only file most changes touch
+src/lib/config.ts      # Zod schema validating site.config.ts
+src/lib/images.ts      # Resolves '/images/foo.jpg' strings to src/assets imports
+src/assets/images/     # Source images (optimized at build via astro:assets)
 src/layouts/           # Base HTML shell, theme CSS vars generation
 src/components/        # Nav, Hero, About, Projects, Work, Contact, Footer, ParticleBackground
 src/styles/global.css  # Reset, typography, shared classes
+public/                # Static passthrough (favicon, fonts, robots.txt)
 k8s/                   # Deployment, Service, IngressRoute manifests
 ```
 
@@ -43,6 +46,8 @@ npm run lint && npm run test && npm run build
 - CSS theming uses custom properties generated from `site.config.ts` theme values at build time
 - Particle background is vanilla Canvas in an inline `<script is:inline>` - no framework needed
 - Don't add runtime JS frameworks - Astro ships zero JS by default (except inline scripts)
+- Images: drop files in `src/assets/images/`, reference as `/images/foo.jpg` strings in `site.config.ts`. Components use `<Image />` from `astro:assets` with `resolveImage()` from `src/lib/images.ts`. The `/images/` prefix is virtual - mapped by the resolver at build time.
+- Use semantic headings (h1 -> h2 -> h3) for structure; visual size comes from class-based CSS, not tag defaults
 
 ## Don't
 

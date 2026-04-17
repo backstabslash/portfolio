@@ -26,7 +26,7 @@ All content lives in `site.config.ts`:
 | `title`        | string | Job title / tagline                                                 |
 | `headline`     | string | Hero section headline                                               |
 | `bio`          | string | Short bio paragraph                                                 |
-| `profileImage` | string | Path to profile photo (in `public/images/`)                         |
+| `profileImage` | string | Path to profile photo, e.g. `/images/profile.jpg`                   |
 | `email`        | string | Contact email                                                       |
 | `links`        | object | `github`, `linkedin`, `resume` URLs                                 |
 | `about`        | object | `image` path and `text` (supports `\n\n` for paragraphs)            |
@@ -38,13 +38,13 @@ All content lives in `site.config.ts`:
 
 ## Images
 
-Drop your images in `public/images/`:
+Drop your images in `src/assets/images/` and reference them in `site.config.ts` as `/images/filename.jpg` (the `/images/` prefix is a virtual path, not a folder). At build time Astro optimizes them to WebP and emits responsive variants via `srcset`, so oversized source files are fine.
 
-| Image               | Recommended size | Used in       |
-| ------------------- | ---------------- | ------------- |
-| `profile.jpg`       | 440x440px        | Hero section  |
-| `about.jpg`         | 800x1000px       | About section |
-| Project screenshots | 1200x750px       | Project cards |
+| Image               | Minimum size | Used in       |
+| ------------------- | ------------ | ------------- |
+| `profile.jpg`       | 440x440px    | Hero section  |
+| `about.jpg`         | 864x1080px   | About section |
+| Project screenshots | 1048x655px   | Project cards |
 
 ## Theming
 

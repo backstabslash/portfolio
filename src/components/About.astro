@@ -1,19 +1,21 @@
 ---
+import { Image } from 'astro:assets';
 import config from '../../site.config';
+import { resolveImage } from '../lib/images';
 
 const paragraphs = config.about.text.split('\n\n');
 ---
 
 <section id="about">
-  <p class="section-label"><span>[</span> About <span>]</span></p>
+  <h2 class="section-label"><span>[</span> About <span>]</span></h2>
   <div class="about-grid">
     <div class="about-image">
-      <img
-        src={config.about.image}
+      <Image
+        src={resolveImage(config.about.image)}
         alt={`${config.name} at work`}
+        widths={[432, 864]}
+        formats={['avif', 'webp']}
         loading="lazy"
-        width="800"
-        height="1000"
       />
     </div>
     <div class="about-text">
@@ -22,7 +24,7 @@ const paragraphs = config.about.text.split('\n\n');
         {
           config.skills.map((skill) => (
             <div class="skill-group">
-              <h4>{skill.label}</h4>
+              <h3>{skill.label}</h3>
               <p>{skill.items}</p>
             </div>
           ))
@@ -62,7 +64,7 @@ const paragraphs = config.about.text.split('\n\n');
     margin-top: 32px;
   }
 
-  .skill-group h4 {
+  .skill-group h3 {
     font-family: var(--font-mono);
     font-size: 12px;
     color: var(--accent);

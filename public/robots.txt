@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://backstabslash.com/sitemap.xml
