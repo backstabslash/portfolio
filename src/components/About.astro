@@ -20,16 +20,20 @@ const paragraphs = config.about.text.split('\n\n');
     </div>
     <div class="about-text">
       {paragraphs.map((p) => <p>{p}</p>)}
-      <div class="skills-grid">
+      <dl class="skills">
         {
           config.skills.map((skill) => (
-            <div class="skill-group">
-              <h3>{skill.label}</h3>
-              <p>{skill.items}</p>
+            <div class="skill-row">
+              <dt>{skill.label}</dt>
+              <dd>
+                {skill.items.split(', ').map((item) => (
+                  <span>{item}</span>
+                ))}
+              </dd>
             </div>
           ))
         }
-      </div>
+      </dl>
     </div>
   </div>
 </section>
@@ -39,7 +43,7 @@ const paragraphs = config.about.text.split('\n\n');
     display: grid;
     grid-template-columns: 1fr 1.8fr;
     gap: 64px;
-    align-items: start;
+    align-items: center;
   }
 
   .about-image img {
@@ -54,30 +58,39 @@ const paragraphs = config.about.text.split('\n\n');
     font-size: 16px;
     line-height: 1.75;
     margin-bottom: 16px;
-    text-align: justify;
   }
 
-  .skills-grid {
+  .skills {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 14px;
     margin-top: 32px;
   }
 
-  .skill-group h3 {
+  .skill-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .skill-row dt {
     font-family: var(--font-mono);
     font-size: 12px;
     color: var(--accent);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 8px;
   }
 
-  .skill-group p {
-    font-size: 14px;
+  .skill-row dd {
+    font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 0;
+  }
+
+  .skill-row span + span::before {
+    content: '/';
+    margin: 0 10px;
+    color: var(--text-tertiary);
   }
 
   @media (max-width: 768px) {
@@ -86,8 +99,13 @@ const paragraphs = config.about.text.split('\n\n');
       gap: 32px;
     }
 
-    .skills-grid {
+    .skills {
+      gap: 20px;
+    }
+
+    .skill-row {
       grid-template-columns: 1fr;
+      gap: 8px;
     }
   }
 </style>

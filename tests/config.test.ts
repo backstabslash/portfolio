@@ -92,6 +92,22 @@ describe('siteConfigSchema', () => {
     expect(result.success).toBe(false);
   });
 
+  it('accepts a site path for resume', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      links: { ...validConfig.links, resume: '/cv.pdf' },
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects a resume that is neither URL nor site path', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      links: { ...validConfig.links, resume: 'cv.pdf' },
+    });
+    expect(result.success).toBe(false);
+  });
+
   it('requires at least one project', () => {
     const result = siteConfigSchema.safeParse({
       ...validConfig,

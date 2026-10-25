@@ -26,6 +26,16 @@ const projectSchema = z.object({
   label: z.string().min(1).optional(),
 });
 
+const projectTeaserSchema = z.object({
+  label: z.string().min(1),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  prompt: z.string().min(1),
+  output: z.string().min(1),
+  tech: z.array(z.string()).min(1),
+  github: z.string().url(),
+});
+
 const workSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
@@ -47,7 +57,10 @@ export const siteConfigSchema = z.object({
   links: z.object({
     github: z.string().url(),
     linkedin: z.string().url(),
-    resume: z.string().url(),
+    resume: z.union([
+      z.string().url(),
+      z.string().regex(/^\/\S+$/, 'Must be a URL or a site path'),
+    ]),
   }),
   about: z.object({
     image: z.string().min(1),
@@ -55,6 +68,7 @@ export const siteConfigSchema = z.object({
   }),
   skills: z.array(skillSchema).min(1),
   projects: z.array(projectSchema).min(1),
+  projectTeaser: projectTeaserSchema.optional(),
   work: z.array(workSchema).min(1),
   contact: z.object({
     heading: z.string().min(1),

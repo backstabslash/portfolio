@@ -20,21 +20,22 @@ Edit `site.config.ts` with your info, that's the only file you need to change.
 
 All content lives in `site.config.ts`:
 
-| Field          | Type   | Description                                                         |
-| -------------- | ------ | ------------------------------------------------------------------- |
-| `name`         | string | Your full name                                                      |
-| `title`        | string | Job title / tagline                                                 |
-| `headline`     | string | Hero section headline                                               |
-| `bio`          | string | Short bio paragraph                                                 |
-| `profileImage` | string | Path to profile photo, e.g. `/images/profile.jpg`                   |
-| `email`        | string | Contact email                                                       |
-| `links`        | object | `github`, `linkedin`, `resume` URLs                                 |
-| `about`        | object | `image` path and `text` (supports `\n\n` for paragraphs)            |
-| `skills`       | array  | `{ label, items }` skill groups                                     |
-| `projects`     | array  | `{ title, description, image, tech, github, url?, stars?, label? }` |
-| `work`         | array  | `{ title, description, tag }` professional work items               |
-| `contact`      | object | `heading` and `description` for the contact section                 |
-| `theme`        | object | `colors.accentDark/accentLight` + `dark` and `light` palettes (hex) |
+| Field           | Type   | Description                                                                              |
+| --------------- | ------ | ---------------------------------------------------------------------------------------- |
+| `name`          | string | Your full name                                                                           |
+| `title`         | string | Job title / tagline                                                                      |
+| `headline`      | string | Hero section headline                                                                    |
+| `bio`           | string | Short bio paragraph                                                                      |
+| `profileImage`  | string | Path to profile photo, e.g. `/images/profile.jpg`                                        |
+| `email`         | string | Contact email                                                                            |
+| `links`         | object | `github`, `linkedin`, `resume` (URL, or a path like `/cv.pdf`)                           |
+| `about`         | object | `image` path and `text` (supports `\n\n` for paragraphs)                                 |
+| `skills`        | array  | `{ label, items }` skill groups                                                          |
+| `projects`      | array  | `{ title, description, image, tech, github, url?, stars?, label? }`                      |
+| `projectTeaser` | object | Optional placeholder card: `{ label, title, description, prompt, output, tech, github }` |
+| `work`          | array  | `{ title, description, tag }` professional work items                                    |
+| `contact`       | object | `heading` and `description` for the contact section                                      |
+| `theme`         | object | `colors.accentDark/accentLight` + `dark` and `light` palettes (hex)                      |
 
 ## Images
 
@@ -45,6 +46,10 @@ Drop your images in `src/assets/images/` and reference them in `site.config.ts` 
 | `profile.jpg`       | 440x440px    | Hero section  |
 | `about.jpg`         | 864x1080px   | About section |
 | Project screenshots | 1048x655px   | Project cards |
+
+## Resume
+
+Drop the PDF in `public/` (e.g. `public/cv.pdf`) and set `links.resume` to `/cv.pdf`. nginx also redirects `/cv` to it and sends `noindex` so it stays out of search results.
 
 ## Theming
 
