@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Spline Sans';
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+  src: url('/fonts/spline-sans-latin-ext.woff2') format('woff2');
   unicode-range:
     U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
     U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
@@ -11,22 +11,22 @@
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Spline Sans';
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/inter-latin.woff2') format('woff2');
+  src: url('/fonts/spline-sans-latin.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'JetBrains Mono';
+  font-family: 'Spline Sans Mono';
   font-style: normal;
-  font-weight: 400 500;
+  font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+  src: url('/fonts/spline-sans-mono-latin-ext.woff2') format('woff2');
   unicode-range:
     U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
     U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
@@ -34,11 +34,11 @@
 }
 
 @font-face {
-  font-family: 'JetBrains Mono';
+  font-family: 'Spline Sans Mono';
   font-style: normal;
-  font-weight: 400 500;
+  font-weight: 300 700;
   font-display: swap;
-  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  src: url('/fonts/spline-sans-mono-latin.woff2') format('woff2');
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -53,8 +53,8 @@
 }
 
 :root {
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Spline Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Spline Sans Mono', monospace;
   --max-width: 1200px;
 }
 
@@ -75,6 +75,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  /* Spline Sans has a narrow word space */
+  word-spacing: 0.06em;
   overflow-x: hidden;
 }
 
@@ -96,10 +98,23 @@ section {
 }
 
 .divider {
+  --grating-a: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--accent) 30%, transparent) 0 1px,
+    transparent 1px 6px
+  );
+  --grating-b: repeating-linear-gradient(
+    49deg,
+    color-mix(in srgb, var(--accent-alt) 30%, transparent) 0 1px,
+    transparent 1px 6.5px
+  );
   max-width: var(--max-width);
+  height: 6px;
   margin: 0 auto;
   border: none;
-  border-top: 1px solid var(--border);
+  /* Two backslash gratings with slightly different pitch beat into a moiré */
+  background: var(--grating-a), var(--grating-b);
+  mask-image: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
 }
 
 .section-label {

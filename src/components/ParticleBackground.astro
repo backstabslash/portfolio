@@ -40,14 +40,77 @@
     const mouse = { x: -1000, y: -1000 };
     const particles = [];
 
-    function getAccentColor() {
-      const raw = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    function getColor(prop, fallback) {
+      const raw = getComputedStyle(document.documentElement).getPropertyValue(prop).trim();
       const m = raw.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
-      if (!m) return { r: 16, g: 185, b: 129 };
+      if (!m) return fallback;
       return { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) };
     }
 
+    function getAccentColor() {
+      return getColor('--accent', { r: 63, g: 184, b: 201 });
+    }
+
+    function getAccentAltColor() {
+      return getColor('--accent-alt', accent);
+    }
+
+    function toLinear(v) {
+      v /= 255;
+      return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    }
+
+    function fromLinear(v) {
+      v = v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(v, 1 / 2.4) - 0.055;
+      return Math.round(Math.min(1, Math.max(0, v)) * 255);
+    }
+
+    function toOklch(c) {
+      const r = toLinear(c.r);
+      const g = toLinear(c.g);
+      const b = toLinear(c.b);
+      const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+      const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+      const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+      const A = 1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s;
+      const B = 0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s;
+      return {
+        L: 0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s,
+        C: Math.hypot(A, B),
+        h: Math.atan2(B, A),
+      };
+    }
+
+    function fromOklch(o) {
+      const A = o.C * Math.cos(o.h);
+      const B = o.C * Math.sin(o.h);
+      const l = Math.pow(o.L + 0.3963377774 * A + 0.2158037573 * B, 3);
+      const m = Math.pow(o.L - 0.1055613458 * A - 0.0638541728 * B, 3);
+      const s = Math.pow(o.L - 0.0894841775 * A - 1.291485548 * B, 3);
+      return {
+        r: fromLinear(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
+        g: fromLinear(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
+        b: fromLinear(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+      };
+    }
+
+    // Mix along the shorter hue arc so teal + rose lands on violet instead of grey
+    function mixColor(a, b) {
+      const x = toOklch(a);
+      const y = toOklch(b);
+      let dh = y.h - x.h;
+      if (dh > Math.PI) dh -= 2 * Math.PI;
+      if (dh < -Math.PI) dh += 2 * Math.PI;
+      return fromOklch({ L: (x.L + y.L) / 2, C: Math.max(x.C, y.C), h: x.h + dh / 2 });
+    }
+
+    function rgba(c, alpha) {
+      return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha + ')';
+    }
+
     let accent = getAccentColor();
+    let accentAlt = getAccentAltColor();
+    let accentMix = mixColor(accent, accentAlt);
 
     function isDarkTheme() {
       return document.documentElement.getAttribute('data-theme') === 'dark';
@@ -96,6 +159,7 @@
           vx: (Math.random() - 0.5) * 0.4,
           vy: (Math.random() - 0.5) * 0.4,
           r: Math.random() * 1.5 + 0.5,
+          alt: Math.random() < 0.3,
         });
       }
       if (particles.length > target) {
@@ -114,6 +178,7 @@
           vx: (Math.random() - 0.5) * 0.4,
           vy: (Math.random() - 0.5) * 0.4,
           r: Math.random() * 1.5 + 0.5,
+          alt: Math.random() < 0.3,
         });
       }
     }
@@ -122,8 +187,8 @@
       ctx.clearRect(0, 0, w, viewH);
       scrollY = window.scrollY;
       const dark = isDarkTheme();
-      const lineBaseAlpha = dark ? 0.15 : 0.1;
-      const dotBaseAlpha = dark ? 0.4 : 0.3;
+      const lineBaseAlpha = dark ? 0.22 : 0.28;
+      const dotBaseAlpha = dark ? 0.4 : 0.55;
 
       var visTop = scrollY - BUFFER;
       var visBot = scrollY + viewH + BUFFER;
@@ -179,9 +244,9 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECTION_RADIUS) {
             const alpha = (1 - dist / CONNECTION_RADIUS) * lineBaseAlpha;
+            const c = a.alt === b.alt ? (a.alt ? accentAlt : accent) : accentMix;
             ctx.beginPath();
-            ctx.strokeStyle =
-              'rgba(' + accent.r + ',' + accent.g + ',' + accent.b + ',' + alpha + ')';
+            ctx.strokeStyle = rgba(c, alpha);
             ctx.lineWidth = 0.5;
             ctx.moveTo(a.x, a.y - scrollY);
             ctx.lineTo(b.x, b.y - scrollY);
@@ -199,9 +264,9 @@
         const dist = Math.sqrt(dx * dx + dy * dy);
         const glow = dist < 200 ? (1 - dist / 200) * 0.5 : 0;
 
+        const c = p.alt ? accentAlt : accent;
         ctx.beginPath();
-        ctx.fillStyle =
-          'rgba(' + accent.r + ',' + accent.g + ',' + accent.b + ',' + (dotBaseAlpha + glow) + ')';
+        ctx.fillStyle = rgba(c, dotBaseAlpha + glow);
         ctx.arc(p.x, screenY, p.r + glow * 2, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -227,6 +292,8 @@
 
     const themeObserver = new MutationObserver(function () {
       accent = getAccentColor();
+      accentAlt = getAccentAltColor();
+      accentMix = mixColor(accent, accentAlt);
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,

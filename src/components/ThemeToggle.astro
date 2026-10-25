@@ -87,7 +87,6 @@
     const next = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    if (window.__updateFavicon) window.__updateFavicon();
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         html.classList.remove('theme-switching');

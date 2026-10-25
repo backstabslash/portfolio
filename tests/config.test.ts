@@ -39,7 +39,6 @@ const validConfig = {
     description: 'Open to new opportunities.',
   },
   theme: {
-    colors: { accentDark: '#10b981', accentLight: '#2563eb' },
     dark: {
       bg: '#0a0a0f',
       bgSecondary: '#111118',
@@ -50,6 +49,8 @@ const validConfig = {
       text: '#e8e8ed',
       textSecondary: '#9898a6',
       textTertiary: '#6a6a78',
+      accent: '#10b981',
+      accentAlt: '#f0595e',
     },
     light: {
       bg: '#f5f5f0',
@@ -61,6 +62,8 @@ const validConfig = {
       text: '#1a1a1f',
       textSecondary: '#5a5a65',
       textTertiary: '#8a8a95',
+      accent: '#2563eb',
+      accentAlt: '#c22f3a',
     },
   },
 };
@@ -165,7 +168,23 @@ describe('siteConfigSchema', () => {
   it('rejects invalid hex color for accent', () => {
     const result = siteConfigSchema.safeParse({
       ...validConfig,
-      theme: { ...validConfig.theme, colors: { accentDark: 'red', accentLight: '#2563eb' } },
+      theme: { ...validConfig.theme, dark: { ...validConfig.theme.dark, accent: 'red' } },
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('accepts a mark with only a dark variant', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      mark: { dark: '/brand/mark.svg' },
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects a mark that is not an SVG site path', () => {
+    const result = siteConfigSchema.safeParse({
+      ...validConfig,
+      mark: { dark: '/brand/mark.png' },
     });
     expect(result.success).toBe(false);
   });

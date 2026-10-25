@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import config from '../../site.config';
 import { resolveImage } from '../lib/images';
+
+const markLight = config.mark?.light ?? config.mark?.dark;
 ---
 
 <section class="hero">
@@ -24,6 +26,7 @@ import { resolveImage } from '../lib/images';
     </div>
     <div class="hero-image">
       <Image
+        class="hero-photo"
         src={resolveImage(config.profileImage)}
         alt={config.name}
         width={220}
@@ -32,6 +35,14 @@ import { resolveImage } from '../lib/images';
         formats={['avif', 'webp']}
         loading="eager"
       />
+      {
+        config.mark && (
+          <span class="hero-mark" aria-hidden="true">
+            <img class="mark-dark" src={config.mark.dark} alt="" width="64" height="64" />
+            <img class="mark-light" src={markLight} alt="" width="64" height="64" />
+          </span>
+        )
+      }
     </div>
   </div>
 </section>
@@ -68,7 +79,7 @@ import { resolveImage } from '../lib/images';
     font-size: clamp(40px, 5vw, 64px);
     font-weight: 700;
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     margin-bottom: 24px;
     max-width: 800px;
   }
@@ -88,12 +99,29 @@ import { resolveImage } from '../lib/images';
     align-items: center;
   }
 
-  .hero-image img {
+  .hero-image {
+    position: relative;
+  }
+
+  .hero-photo {
     width: 220px;
     height: 220px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--border);
+  }
+
+  .hero-mark {
+    position: absolute;
+    width: 96px;
+    left: -50px;
+    bottom: -16px;
+    line-height: 0;
+  }
+
+  .hero-mark img {
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: 768px) {
@@ -117,9 +145,22 @@ import { resolveImage } from '../lib/images';
       text-align: justify;
     }
 
-    .hero-image img {
+    .hero-photo {
       width: 120px;
       height: 120px;
     }
+
+    .hero-mark {
+      width: 58px;
+      left: -32px;
+      bottom: -10px;
+    }
+  }
+</style>
+
+<style is:global>
+  [data-theme='dark'] .hero-mark .mark-light,
+  [data-theme='light'] .hero-mark .mark-dark {
+    display: none;
   }
 </style>

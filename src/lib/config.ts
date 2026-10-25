@@ -12,6 +12,8 @@ const themePalette = z.object({
   text: hexColor,
   textSecondary: hexColor,
   textTertiary: hexColor,
+  accent: hexColor,
+  accentAlt: hexColor,
 });
 
 const projectSchema = z.object({
@@ -53,6 +55,15 @@ export const siteConfigSchema = z.object({
   headline: z.string().min(1),
   bio: z.string().min(1),
   profileImage: z.string().min(1),
+  mark: z
+    .object({
+      dark: z.string().regex(/^\/\S+\.svg$/, 'Must be a site path to an SVG'),
+      light: z
+        .string()
+        .regex(/^\/\S+\.svg$/, 'Must be a site path to an SVG')
+        .optional(),
+    })
+    .optional(),
   email: z.string().email(),
   links: z.object({
     github: z.string().url(),
@@ -75,10 +86,6 @@ export const siteConfigSchema = z.object({
     description: z.string().min(1),
   }),
   theme: z.object({
-    colors: z.object({
-      accentDark: hexColor,
-      accentLight: hexColor,
-    }),
     dark: themePalette,
     light: themePalette,
   }),

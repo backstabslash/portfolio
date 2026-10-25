@@ -5,7 +5,7 @@ import config from '../../site.config';
 
 <nav class="nav" id="nav">
   <a href="/" class="nav-logo">
-    {config.name.split(' ')[0].toLowerCase()}<span>.</span>{
+    {config.name.split(' ')[0].toLowerCase()}<span>&#92;</span>{
       config.name.split(' ')[1]?.toLowerCase()
     }
   </a>
@@ -49,15 +49,22 @@ import config from '../../site.config';
     border-bottom: 1px solid var(--border);
   }
 
+  /* Dark project screenshots scrolling under a 70% light nav turn it grey */
+  :global([data-theme='light']) .nav {
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+  }
+
   .nav-logo {
     font-weight: 600;
     font-size: 16px;
     color: var(--text);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   .nav-logo span {
-    color: var(--accent);
+    color: var(--text-tertiary);
+    font-weight: 400;
+    opacity: 0.6;
   }
 
   .nav-links {

@@ -1,6 +1,7 @@
 [![CI](https://github.com/backstabslash/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/backstabslash/portfolio/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Built with Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01.svg?logo=astro)](https://astro.build)
+[![CV](https://img.shields.io/badge/cv-pdf-d90429.svg)](https://backstabslash.com/cv.pdf)
 
 A config-driven developer portfolio built with Astro. Dark/light theme, interactive particle background, zero runtime JS (except particles). Deploy to Kubernetes or any static host.
 
@@ -27,6 +28,7 @@ All content lives in `site.config.ts`:
 | `headline`      | string | Hero section headline                                                                    |
 | `bio`           | string | Short bio paragraph                                                                      |
 | `profileImage`  | string | Path to profile photo, e.g. `/images/profile.jpg`                                        |
+| `mark`          | object | Optional personal SVG shown at the photo's corner: `{ dark, light? }`                    |
 | `email`         | string | Contact email                                                                            |
 | `links`         | object | `github`, `linkedin`, `resume` (URL, or a path like `/cv.pdf`)                           |
 | `about`         | object | `image` path and `text` (supports `\n\n` for paragraphs)                                 |
@@ -35,7 +37,7 @@ All content lives in `site.config.ts`:
 | `projectTeaser` | object | Optional placeholder card: `{ label, title, description, prompt, output, tech, github }` |
 | `work`          | array  | `{ title, description, tag }` professional work items                                    |
 | `contact`       | object | `heading` and `description` for the contact section                                      |
-| `theme`         | object | `colors.accentDark/accentLight` + `dark` and `light` palettes (hex)                      |
+| `theme`         | object | `dark` and `light` palettes (hex), each with its own `accent` and `accentAlt`            |
 
 ## Images
 
@@ -47,6 +49,12 @@ Drop your images in `src/assets/images/` and reference them in `site.config.ts` 
 | `about.jpg`         | 864x1080px   | About section |
 | Project screenshots | 1048x655px   | Project cards |
 
+## Mark and favicon
+
+`mark` is an optional SVG of your own, shown at the bottom-left corner of the hero photo. Put the files in `public/` (e.g. `public/brand/`) and point `mark.dark` and `mark.light` at them. `dark` is used on the dark theme, and `light` on the light theme, falling back to `dark` if omitted. They're served as-is, so CSS animations inside the SVG keep playing. Wrap them in a `prefers-reduced-motion` block that shows the final frame.
+
+The favicon is separate: replace `public/favicon.svg`, `public/favicon-96.png` (search results) and `public/apple-touch-icon.png` (180x180, iOS home screen). Browsers don't run animations in favicons, so use a static version of the mark.
+
 ## Resume
 
 Drop the PDF in `public/` (e.g. `public/cv.pdf`) and set `links.resume` to `/cv.pdf`. nginx also redirects `/cv` to it and sends `noindex` so it stays out of search results.
@@ -55,9 +63,10 @@ Drop the PDF in `public/` (e.g. `public/cv.pdf`) and set `links.resume` to `/cv.
 
 Edit `theme` in `site.config.ts` to change colors. All values are hex colors.
 
-Each theme has its own accent color (`accentDark`, `accentLight`) that drives section labels, tech tags, particle color, primary buttons, and hover states.
+Dark and light palettes are independent - each defines `bg`, `card`, `border`, `text`, and their variants, plus two accents:
 
-Dark and light palettes are independent - each defines `bg`, `card`, `border`, `text`, and their variants.
+- `accent` drives section labels, tech tags, primary buttons, and hover states.
+- `accentAlt` only shows up in the particle background and the moiré dividers, paired with `accent`.
 
 ## Development
 
