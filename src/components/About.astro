@@ -82,12 +82,14 @@ const paragraphs = config.about.text.split('\n\n');
   }
 
   .skill-row dd {
+    display: flex;
+    flex-wrap: wrap;
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.6;
   }
 
-  .skill-row span + span::before {
+  .skill-row span:not(:last-child)::after {
     content: '/';
     margin: 0 10px;
     color: var(--text-tertiary);

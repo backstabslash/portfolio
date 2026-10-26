@@ -50,6 +50,7 @@ const markLight = config.mark?.light ?? config.mark?.dark;
 <style>
   .hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,6 +92,8 @@ const markLight = config.mark?.light ?? config.mark?.dark;
     line-height: 1.7;
     margin-bottom: 40px;
     text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 
   .hero-ctas {
@@ -113,9 +116,9 @@ const markLight = config.mark?.light ?? config.mark?.dark;
 
   .hero-mark {
     position: absolute;
-    width: 96px;
-    left: -50px;
-    bottom: -16px;
+    width: 72px;
+    left: -38px;
+    bottom: -12px;
     line-height: 0;
   }
 
@@ -151,9 +154,9 @@ const markLight = config.mark?.light ?? config.mark?.dark;
     }
 
     .hero-mark {
-      width: 58px;
-      left: -32px;
-      bottom: -10px;
+      width: 44px;
+      left: -24px;
+      bottom: -8px;
     }
   }
 </style>

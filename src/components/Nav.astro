@@ -100,18 +100,22 @@ import config from '../../site.config';
   .nav-mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    gap: 5.5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    /* 44px tap target, negative margin keeps the icon where it was */
+    height: 44px;
+    padding: 0 10px;
+    margin: -10px -6px;
   }
 
   .nav-mobile-toggle span {
     display: block;
     width: 24px;
-    height: 2px;
-    background: var(--text);
+    height: 1.5px;
+    background: var(--text-secondary);
     transition:
       transform 0.3s,
       opacity 0.3s;
