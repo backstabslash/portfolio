@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { title = config.name, description = config.bio } = Astro.props;
+const ogImage = config.ogImage && new URL(config.ogImage.path, Astro.site).href;
 ---
 
 <!doctype html>
@@ -38,7 +39,18 @@ const { title = config.name, description = config.bio } = Astro.props;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={Astro.site?.toString() || ''} />
-    <meta name="twitter:card" content="summary" />
+    {
+      config.ogImage && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={config.ogImage.alt} />
+          <meta name="twitter:image" content={ogImage} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content={config.ogImage ? 'summary_large_image' : 'summary'} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />

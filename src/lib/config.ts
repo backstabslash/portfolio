@@ -20,6 +20,7 @@ const projectSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
   image: z.string().min(1),
+  imageLight: z.string().min(1).optional(),
   tech: z.array(z.string()).min(1),
   github: z.string().url(),
   url: z.string().url().optional(),
@@ -55,6 +56,12 @@ export const siteConfigSchema = z.object({
   headline: z.string().min(1),
   bio: z.string().min(1),
   profileImage: z.string().min(1),
+  ogImage: z
+    .object({
+      path: z.string().regex(/^\/\S+$/, 'Must be a site path'),
+      alt: z.string().min(1),
+    })
+    .optional(),
   mark: z
     .object({
       dark: z.string().regex(/^\/\S+\.svg$/, 'Must be a site path to an SVG'),

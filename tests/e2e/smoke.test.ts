@@ -10,6 +10,13 @@ test.describe('portfolio smoke tests', () => {
     await expect(page).toHaveTitle(new RegExp(config.name));
   });
 
+  test('link preview image and sitemap resolve', async ({ page, request }) => {
+    const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
+    expect(ogImage).toBe(new URL('/og.png', 'https://backstabslash.com').href);
+    expect((await request.get('/og.png')).ok()).toBe(true);
+    expect(await (await request.get('/sitemap.xml')).text()).toContain('<urlset');
+  });
+
   test('all sections render', async ({ page }) => {
     await expect(page.locator('.hero')).toBeVisible();
     await expect(page.locator('#about')).toBeVisible();

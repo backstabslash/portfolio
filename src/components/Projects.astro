@@ -43,12 +43,25 @@ const projects = await Promise.all(
         >
           <div class="project-image">
             <Image
+              class:list={{ 'shot-dark': project.imageLight }}
               src={resolveImage(project.image)}
               alt={project.title}
               widths={[524, 1048]}
               formats={['avif', 'webp']}
               loading="lazy"
+              decoding="sync"
             />
+            {project.imageLight && (
+              <Image
+                class="shot-light"
+                src={resolveImage(project.imageLight)}
+                alt={project.title}
+                widths={[524, 1048]}
+                formats={['avif', 'webp']}
+                loading="lazy"
+                decoding="sync"
+              />
+            )}
           </div>
           <div class="project-body">
             <div class="project-meta">
@@ -140,6 +153,7 @@ const projects = await Promise.all(
     left: 0;
     right: 0;
     height: 2px;
+    z-index: 1;
     background: var(--accent);
     opacity: 0;
     transition: opacity 0.25s;
@@ -150,6 +164,7 @@ const projects = await Promise.all(
   }
 
   .project-image {
+    position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
@@ -275,5 +290,17 @@ const projects = await Promise.all(
     .projects-grid {
       grid-template-columns: 1fr;
     }
+  }
+</style>
+
+<style is:global>
+  .project-image .shot-light {
+    position: absolute;
+    inset: 0;
+  }
+
+  [data-theme='dark'] .project-image .shot-light,
+  [data-theme='light'] .project-image .shot-dark {
+    visibility: hidden;
   }
 </style>

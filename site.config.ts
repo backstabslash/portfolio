@@ -7,6 +7,10 @@ export default defineConfig({
   bio: 'DevOps and AI Platform Engineer with 3 years at Pipedrive. Building developer tools, AI products, and infrastructure for a 300+ engineer organization.',
 
   profileImage: '/images/profile.jpg',
+  ogImage: {
+    path: '/og.png',
+    alt: 'Tymofii Striukov, DevOps & AI Platform Engineer: Building tools that make engineers ship faster',
+  },
   mark: {
     dark: '/brand/higanbana-dark.svg',
     light: '/brand/higanbana-light.svg',
@@ -38,6 +42,7 @@ export default defineConfig({
       description:
         'See what your coding agent changed and why. Keep the good lines, throw out the rest.',
       image: '/images/moire.png',
+      imageLight: '/images/moire-light.png',
       tech: ['Electron', 'TypeScript', 'Agent skill', 'Linux', 'macOS'],
       github: 'https://github.com/backstabslash/moire',
       liveStars: true,
@@ -48,6 +53,7 @@ export default defineConfig({
       description:
         'CLI cost calculator for Claude Code. Parses session logs, breaks down costs by model, tracks spending over time.',
       image: '/images/goccc.png',
+      imageLight: '/images/goccc-light.png',
       tech: ['Go', 'CLI', 'Zero deps', 'Homebrew'],
       github: 'https://github.com/backstabslash/goccc',
       stars: 35,
@@ -59,6 +65,7 @@ export default defineConfig({
       description:
         'Personal finance tracker pulling multi-bank transactions via Enable Banking PSD2 API. Telegram summaries and Grafana dashboards.',
       image: '/images/spending-tracker.png',
+      imageLight: '/images/spending-tracker-light.png',
       tech: ['TypeScript', 'MongoDB', 'Grafana', 'k3s', 'Helm', 'GitHub Actions'],
       github: 'https://github.com/backstabslash/eb-spending-tracker',
       label: 'Open Source',
